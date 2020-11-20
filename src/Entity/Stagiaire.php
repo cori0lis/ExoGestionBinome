@@ -32,6 +32,36 @@ class Stagiaire
      */
     private $civilite;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $dateNaissance;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $adresse;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $cp;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $telephone;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +99,78 @@ class Stagiaire
     public function setCivilite(string $civilite): self
     {
         $this->civilite = $civilite;
+
+        return $this;
+    }
+
+    public function getDateNaissance(): ?\DateTimeInterface
+    {
+        return $this->dateNaissance;
+    }
+
+    public function setDateNaissance(\DateTimeInterface $dateNaissance): self
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getCp(): ?string
+    {
+        return $this->cp;
+    }
+
+    public function setCp(string $cp): self
+    {
+        $this->cp = $cp;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(string $telephone): self
+    {
+        $this->telephone = $telephone;
 
         return $this;
     }
