@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UtilisateurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -73,6 +75,16 @@ class Utilisateur implements UserInterface
      * @ORM\Column(type="string", length=50)
      */
     private $telephone;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Categorie::class, inversedBy="utilisateurs")
+     */
+    private $categorie;
+
+    public function __construct()
+    {
+        $this->categorie = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -244,6 +256,30 @@ class Utilisateur implements UserInterface
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Categorie[]
+     */
+    public function getCategorie(): Collection
+    {
+        return $this->categorie;
+    }
+
+    public function addCategorie(Categorie $categorie): self
+    {
+        if (!$this->categorie->contains($categorie)) {
+            $this->categorie[] = $categorie;
+        }
+
+        return $this;
+    }
+
+    public function removeCategorie(Categorie $categorie): self
+    {
+        $this->categorie->removeElement($categorie);
 
         return $this;
     }

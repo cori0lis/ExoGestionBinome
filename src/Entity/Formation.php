@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FormationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Formation
      * @ORM\Column(type="text")
      */
     private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Duree::class, mappedBy="formation")
+     */
+    private $durees;
+
+    public function __construct()
+    {
+        $this->durees = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,36 @@ class Formation
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Duree[]
+     */
+    public function getDurees(): Collection
+    {
+        return $this->durees;
+    }
+
+    public function addDuree(Duree $duree): self
+    {
+        if (!$this->durees->contains($duree)) {
+            $this->durees[] = $duree;
+            $duree->setFormation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDuree(Duree $duree): self
+    {
+        if ($this->durees->removeElement($duree)) {
+            // set the owning side to null (unless already changed)
+            if ($duree->getFormation() === $this) {
+                $duree->setFormation(null);
+            }
+        }
 
         return $this;
     }
