@@ -45,7 +45,7 @@ class Utilisateur implements UserInterface
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=1)
      */
     private $civilite;
 
