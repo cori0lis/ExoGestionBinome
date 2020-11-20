@@ -48,7 +48,7 @@ class Stagiaire
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=20)
      */
     private $cp;
 
