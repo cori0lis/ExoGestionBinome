@@ -34,9 +34,15 @@ class Formation
      */
     private $durees;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Session::class, mappedBy="formation")
+     */
+    private $sessions;
+
     public function __construct()
     {
         $this->durees = new ArrayCollection();
+        $this->sessions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,6 +98,36 @@ class Formation
             // set the owning side to null (unless already changed)
             if ($duree->getFormation() === $this) {
                 $duree->setFormation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Session[]
+     */
+    public function getSessions(): Collection
+    {
+        return $this->sessions;
+    }
+
+    public function addSession(Session $session): self
+    {
+        if (!$this->sessions->contains($session)) {
+            $this->sessions[] = $session;
+            $session->setFormation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSession(Session $session): self
+    {
+        if ($this->sessions->removeElement($session)) {
+            // set the owning side to null (unless already changed)
+            if ($session->getFormation() === $this) {
+                $session->setFormation(null);
             }
         }
 
