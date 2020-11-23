@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+<a type="button" class="btn btn-success" href="
+
+{# {{ path('salarie_add')}} #}
+
+">Ajouter</a>
+
+
+    <table class="table">
+        <tr>
+            <th>NOM</th>
+            <th>DESCRIPTION</th>
+            <th>SESSIONS</th>
+            <th>DUREE</th>
+            <th>MODULES</th>
+            <th>CATEGORIE</th>
+            <th>FORMATEUR</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        {# {% for stagiaire in stagiaires %}
+            <tr>
+                <td><a href="{{ path('salarie_show', {'id':salarie.id}) }}"> {{ salarie.nom ~ ' ' ~ salarie.prenom }}</a></td>
+                <td>{{ salarie.adresse }}</td>
+                <td>{{ salarie.cp }}</td>
+                <td>{{ salarie.ville }}</td>
+                <td>{{ salarie.dateEmbauche | date ('d/m/Y') }}</td>
+                <td><a href="{{ path('entreprise_show', {'id':salarie.entreprise.id}) }}"> {{ salarie.entreprise.raisonsociale }}</a></td>
+                <td><a type="button" class="btn btn-warning" href="{{ path('salarie_edit', {'id':salarie.id}) }}">Modifier</a></td>
+                <td><a type="button" class="btn btn-danger" href="{{ path('salarie_delete', {'id':salarie.id}) }}">Supprimer</a></td>
+            </tr>
+        {% endfor %} #}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,17 @@
+.wrapper1 {
+  height: 100%;
+  width: 15%
+}
+
+.wrapper1 nav{
+    height: 100vh;
+}
+
+.wrapper2 {
+    height: 100%;
+    width: 85%;
+}
+
+.wrapper0 {
+  display: flex;
+}
