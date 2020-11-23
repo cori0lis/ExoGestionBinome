@@ -25,7 +25,7 @@ class StagiaireController extends AbstractController
     {
         $stagiaires = $this->getDoctrine()
             ->getRepository(Stagiaire::class)
-            ->getAll();
+            ->findAll();
 
         return $this->render('stagiaire/index.html.twig', ['stagiaires' => $stagiaires,]);
     }

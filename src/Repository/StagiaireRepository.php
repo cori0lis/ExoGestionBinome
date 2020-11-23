@@ -18,15 +18,6 @@ class StagiaireRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Stagiaire::class);
     }
-    public function getAll()
-    {
-        $entityManager = $this->getEntityManager();
-        $query = $entityManager->createQuery(
-            "SELECT s
-                FROM App\Entity\Stagiaire s"
-            );
-        return $query->execute();
-    }
 
     // /**
     //  * @return Stagiaire[] Returns an array of Stagiaire objects
