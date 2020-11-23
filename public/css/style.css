@@ -1,17 +1,21 @@
-.wrapper1 {
-  height: 100%;
-  width: 15%
-}
-
-.wrapper1 nav{
-    height: 100vh;
-}
-
-.wrapper2 {
-    height: 100%;
-    width: 85%;
-}
-
 .wrapper0 {
   display: flex;
+  width: 100%;
+}
+.wrapper1 {
+  height: 100vh;
+  width: 15%;
+  background-color: #343a40;
+}
+.wrapper1 a {
+  color: white;
+  margin: 1em;
+}
+.wrapper2 {
+  margin: 1em;
+  height: 100%;
+  width: 100%;
+}
+.ajouter {
+  margin: 1em;
 }

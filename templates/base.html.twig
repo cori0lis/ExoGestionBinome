@@ -13,8 +13,9 @@
 	</head>
 	<body>
 		{% block body %}
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<a class="navbar-brand" href="#">Navbar</a>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="#">
+				<img src="{{ asset('images/sharpener.svg') }}" width="30" height="30" alt=""> ExoGestionBinome</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -37,26 +38,12 @@
 			</nav>
 			<div class="wrapper0">
 				<div class="wrapper1">
-					<nav class="navbar flex-column navbar-expand-lg navbar-dark bg-dark" ">
-						{# <a class="navbar-brand" href="#">ExoGestionBinome</a> #}
-						{# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-												<span class="navbar-toggler-icon"></span>
-											</button> #}
-						{# <div class="collapse navbar-collapse" id="navbarNav"> #}
-						<ul class="navbar-nav flex-column">
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('stagiaire')}}">Stagiaires</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('formation')}}">Formations</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('collegue')}}">Collegues</a>
-							</li>
-						</ul>
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link btn" href="{{ path('stagiaire')}}">Stagiaires</a>
+						<a class="nav-link btn" href="{{ path('formation')}}">Formations</a>
+						<a class="nav-link btn" href="{{ path('collegue')}}">Collegues</a>
 					</div>
-				</nav>
-				{# </div> #}
+				</div>
 			{% endblock %}
 			<div class="wrapper2"> {% block contenu %}{% endblock %}
 				</div>
