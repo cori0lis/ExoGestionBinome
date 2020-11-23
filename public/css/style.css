@@ -19,3 +19,10 @@
 .ajouter {
   margin: 1em;
 }
+.table th,
+.table td {
+  vertical-align: middle;
+}
+#navbarSupportedContent {
+  justify-content: space-between;
+}
