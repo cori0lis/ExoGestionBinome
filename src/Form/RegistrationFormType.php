@@ -60,14 +60,15 @@ class RegistrationFormType extends AbstractType
             ->add('adresse', TextType::class)
             ->add('cp', TextType::class)
             ->add('ville', TextType::class)
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-            ]);
+            // ->add('agreeTerms', CheckboxType::class, [
+            //     'mapped' => false,
+            //     'constraints' => [
+            //         new IsTrue([
+            //             'message' => 'You should agree to our terms.',
+            //         ]),
+            //     ],
+            // ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
