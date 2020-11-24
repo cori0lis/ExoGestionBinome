@@ -2,8 +2,8 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
-<a type="button" href="{{ path('annuaire')}}" class="btn btn-light">< Retour</a>
+{% block contenu %}
+<a type="button" href="{{ path('annuaire')}}" class="btn btn-dark">Retour</a>
 
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
@@ -25,6 +25,6 @@
         {{ form_row(registrationForm.ville) }}
         {{ form_row(registrationForm.telephone) }}
         {# {{ form_row(registrationForm.agreeTerms) }} #}
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-dark">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
