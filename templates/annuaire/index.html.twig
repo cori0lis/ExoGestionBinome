@@ -25,18 +25,18 @@
 		</tr>
 	</thead>
 	<tbody>
-		{% for annuaire in utilisateurs %}
+		{% for utilisateur in utilisateurs %}
 			<tr>
-				<td>{{ annuaire.nom }}</td>
-				<td>{{ annuaire.prenom }}</td>
-				{# <td>{{ annuaire.role }}</td> #}
-				<td>{{ annuaire.civilite }}</td>
-				<td>{{ annuaire.email }}</td>
-				<td>{{ annuaire.telephone }}</td>
-				<td>{{ annuaire.dateNaissance | date ('d/m/Y') }}</td>
-				<td>{{ annuaire.ville }}</td>
-				<td>{{ annuaire.adresse }}</td>
-				<td>{{ annuaire.cp }}</td>
+				<td><a href="{{ path('annuaire_show', {'id':utilisateur.id}) }}">{{ utilisateur.nom }}</a></td>
+				<td>{{ utilisateur.prenom }}</td>
+				{# <td>{{ utilisateur.role }}</td> #}
+				<td>{{ utilisateur.civilite }}</td>
+				<td>{{ utilisateur.email }}</td>
+				<td>{{ utilisateur.telephone }}</td>
+				<td>{{ utilisateur.dateNaissance | date ('d/m/Y') }}</td>
+				<td>{{ utilisateur.ville }}</td>
+				<td>{{ utilisateur.adresse }}</td>
+				<td>{{ utilisateur.cp }}</td>
 				<td>
 					<a type="button" class="btn btn-warning" href="
 						                {# {{ path('utilisateur_edit', {'id':utilisateur.id}) }} #}

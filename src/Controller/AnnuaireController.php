@@ -26,4 +26,11 @@ class AnnuaireController extends AbstractController
 
         return $this->render('annuaire/index.html.twig', ['utilisateurs' => $utilisateurs,]);
     }
+    /**
+     * @Route("/annuaire/{id}", name="annuaire_show", methods="GET")
+     */
+    public function show(Utilisateur $utilisateur): Response
+    {
+        return $this->render('annuaire/show.html.twig', ['utilisateur' => $utilisateur]);
+    }
 }
