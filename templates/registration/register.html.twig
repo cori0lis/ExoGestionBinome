@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block contenu %}
-<a type="button" href="{{ path('annuaire')}}" class="btn" style="padding-left: 0"><i class="fas fa-arrow-left" style="font-size: 3em;"></i></a>
+<a type="button" href="{{ path('annuaire')}}" class="btn" style="padding-left: 0;"><i class="fas fa-arrow-left" style="font-size: 3rem"></i></a>
 
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
@@ -14,8 +14,7 @@
     {{ form_start(registrationForm) }}    
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.roles) }}
-        {{ form_row(registrationForm.plainPassword, {'label':'Password'}) }}
-        {# {{ form_row(registrationForm.confirmPassword) }} #}
+        {{ form_row(registrationForm.password) }}
         {{ form_row(registrationForm.nom) }}
         {{ form_row(registrationForm.prenom) }}
         {{ form_row(registrationForm.civilite) }}
@@ -25,6 +24,5 @@
         {{ form_row(registrationForm.ville) }}
         {{ form_row(registrationForm.telephone) }}
         {# {{ form_row(registrationForm.agreeTerms) }} #}
-        <button type="submit" class="btn btn-dark">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
