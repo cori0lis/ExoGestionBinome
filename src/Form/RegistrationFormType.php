@@ -56,6 +56,7 @@ class RegistrationFormType extends AbstractType
                 'format' => 'ddMMMMyyyy'
             ])
             ->add('civilite', TextType::class)
+            ->add('telephone', TextType::class)
             ->add('adresse', TextType::class)
             ->add('cp', TextType::class)
             ->add('ville', TextType::class)
