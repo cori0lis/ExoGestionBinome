@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block contenu %}
-<a type="button" href="{{ path('annuaire')}}" class="btn btn-dark">Retour</a>
+<a type="button" href="{{ path('annuaire')}}" class="btn" style="padding-left: 0"><i class="fas fa-arrow-left" style="font-size: 3em;"></i></a>
 
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
