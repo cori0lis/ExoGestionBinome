@@ -3,7 +3,7 @@
 {% block contenu %}
 	<p>{{ utilisateur.nom ~ ' ' ~ utilisateur.prenom }}</p>
 	<p>{{ utilisateur.civilite }}</p>
-	<p>{{ utilisateur.email }}</p>
+	<p>Adresse mail : <a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a></p>
 	<p>{{ utilisateur.telephone }}</p>
 	<p>{{ utilisateur.dateNaissance | date ('d/m/Y') }}</p>
 	<p>{{ utilisateur.ville }}</p>
