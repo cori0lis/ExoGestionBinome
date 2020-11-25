@@ -30,7 +30,7 @@
 				<td><a href="{{ path('stagiaire_show', {'id':stagiaire.id}) }}">{{ stagiaire.nom }}</a></td>
 				<td>{{ stagiaire.prenom }}</td>
 				<td>{{ stagiaire.civilite }}</td>
-				<td>{{ stagiaire.email }}</td>
+				<td><a href="mailto:{{ stagiaire.email }}">{{ stagiaire.email }}</a></td>
 				<td>{{ stagiaire.telephone }}</td>
 				<td>{{ stagiaire.dateNaissance | date ('d/m/Y') }}</td>
 				<td>{{ stagiaire.ville }}</td>

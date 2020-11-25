@@ -32,7 +32,7 @@
 				<td>{{ utilisateur.prenom }}</td>
 				{# <td>{{ utilisateur.role }}</td> #}
 				<td>{{ utilisateur.civilite }}</td>
-				<td>{{ utilisateur.email }}</td>
+				<td><a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a></td>
 				<td>{{ utilisateur.telephone }}</td>
 				<td>{{ utilisateur.dateNaissance | date ('d/m/Y') }}</td>
 				<td>{{ utilisateur.ville }}</td>
