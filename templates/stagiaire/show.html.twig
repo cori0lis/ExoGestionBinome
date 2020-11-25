@@ -2,13 +2,49 @@
 
 {% block contenu %}
 <a type="button" href="{{ path('stagiaire')}}" class="btn" style="padding-left: 0;"><i class="fas fa-arrow-left" style="font-size: 3rem"></i></a>
-	<p>{{ stagiaire.nom ~ ' ' ~ stagiaire.prenom }}</p>
+	{# <p>Nom : {{ stagiaire.nom ~ ' ' ~ stagiaire.prenom }}</p>
 	<p>Civilité : {{ stagiaire.civilite }}</p>
 	<p>Adresse mail : <a href="mailto:{{ stagiaire.email }}">{{ stagiaire.email }}</a></p>
 	<p>Téléphone : {{ stagiaire.telephone }}</p>
 	<p>Date de naissance : {{ stagiaire.dateNaissance | date ('d/m/Y') }}</p>
 	<p>Ville : {{ stagiaire.ville }}</p>
 	<p>Adresse : {{ stagiaire.adresse }}</p>
-	<p>Code Postal : {{ stagiaire.cp }}</p>
+	<p>Code Postal : {{ stagiaire.cp }}</p> #}
+    <table>
+		<tr>
+			<th>Nom :</th>
+			<td>{{ stagiaire.nom ~ ' ' ~ stagiaire.prenom }}</td>
+		</tr>
+		<tr>
+			<th>Civilité :</th>
+			<td>{{ stagiaire.civilite }}</td>
+		</tr>
+		<tr>
+			<th>Adresse mail :</th>
+			<td>
+				<a href="mailto:{{ stagiaire.email }}">{{ stagiaire.email }}</a>
+			</td>
+		</tr>
+		<tr>
+			<th>Téléphone :</th>
+			<td>{{ stagiaire.telephone }}</td>
+		</tr>
+		<tr>
+			<th>Date de naissance :</th>
+			<td>{{ stagiaire.dateNaissance | date ('d/m/Y') }}</td>
+		</tr>
+		<tr>
+			<th>Ville :</th>
+			<td>{{ stagiaire.ville }}</td>
+		</tr>
+		<tr>
+			<th>Adresse :</th>
+			<td>{{ stagiaire.adresse }}</td>
+		</tr>
+		<tr>
+			<th>Code Postal :</th>
+			<td>{{ stagiaire.cp }}</td>
+		</tr>
+	</table>
     {# <a type="button" class="btn btn-warning" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier MDP</a> #}
 {% endblock %}

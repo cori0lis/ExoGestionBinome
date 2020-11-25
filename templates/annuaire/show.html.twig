@@ -1,13 +1,49 @@
 {% extends 'base.html.twig' %}
 
 {% block contenu %}
-	<p>{{ utilisateur.nom ~ ' ' ~ utilisateur.prenom }}</p>
-	<p>{{ utilisateur.civilite }}</p>
-	<p>Adresse mail : <a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a></p>
-	<p>{{ utilisateur.telephone }}</p>
-	<p>{{ utilisateur.dateNaissance | date ('d/m/Y') }}</p>
-	<p>{{ utilisateur.ville }}</p>
-	<p>{{ utilisateur.adresse }}</p>
-	<p>{{ utilisateur.cp }}</p>
-    <a type="button" class="btn btn-warning" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier MDP</a>
+	{# <p>Nom : {{ utilisateur.nom ~ ' ' ~ utilisateur.prenom }}</p> #}
+	{# <p>Civilité :{{ utilisateur.civilite }}</p> #}
+	{# <p>Adresse mail : <a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a></p> #}
+	{# <p>Téléphone : {{ utilisateur.telephone }}</p> #}
+	{# <p>Date de naissance : {{ utilisateur.dateNaissance | date ('d/m/Y') }}</p> #}
+	{# <p>Ville : {{ utilisateur.ville }}</p> #}
+	{# <p>Adresse : {{ utilisateur.adresse }}</p> #}
+	{# <p>Code Postal : {{ utilisateur.cp }}</p> #}
+		<table>
+		<tr>
+			<th>Nom :</th>
+			<td>{{ utilisateur.nom ~ ' ' ~ utilisateur.prenom }}</td>
+		</tr>
+		<tr>
+			<th>Civilité :</th>
+			<td>{{ utilisateur.civilite }}</td>
+		</tr>
+		<tr>
+			<th>Adresse mail :</th>
+			<td>
+				<a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a>
+			</td>
+		</tr>
+		<tr>
+			<th>Téléphone :</th>
+			<td>{{ utilisateur.telephone }}</td>
+		</tr>
+		<tr>
+			<th>Date de naissance :</th>
+			<td>{{ utilisateur.dateNaissance | date ('d/m/Y') }}</td>
+		</tr>
+		<tr>
+			<th>Ville :</th>
+			<td>{{ utilisateur.ville }}</td>
+		</tr>
+		<tr>
+			<th>Adresse :</th>
+			<td>{{ utilisateur.adresse }}</td>
+		</tr>
+		<tr>
+			<th>Code Postal :</th>
+			<td>{{ utilisateur.cp }}</td>
+		</tr>
+	</table>
+	<a type="button" class="btn btn-warning" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier MDP</a>
 {% endblock %}
