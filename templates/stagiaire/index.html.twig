@@ -27,7 +27,7 @@
 	<tbody>
 		{% for stagiaire in stagiaires %}
 			<tr>
-				<td>{{ stagiaire.nom }}</td>
+				<td><a href="{{ path('stagiaire_show', {'id':stagiaire.id}) }}">{{ stagiaire.nom }}</a></td>
 				<td>{{ stagiaire.prenom }}</td>
 				<td>{{ stagiaire.civilite }}</td>
 				<td>{{ stagiaire.email }}</td>
