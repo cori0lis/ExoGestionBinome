@@ -9,5 +9,5 @@
 	<p>{{ utilisateur.ville }}</p>
 	<p>{{ utilisateur.adresse }}</p>
 	<p>{{ utilisateur.cp }}</p>
-    <a type="button" class="btn btn-warning" href="">Modifier MDP</a>
+    <a type="button" class="btn btn-warning" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier MDP</a>
 {% endblock %}

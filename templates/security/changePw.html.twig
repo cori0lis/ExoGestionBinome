@@ -4,12 +4,18 @@
 {% endblock %}
 
 {% block body %}
-		
-        {{ form_start(changePassword) }}    
-        {{ form_row(changePassword.oldPassword) }}
-        {{ form_row(changePassword.password) }}
-		<button class="btn btn-lg btn-primary" type="submit">
+	{# <form>	 #}
+        {# {{ form_start(form) }}     #}
+        {# {{ form_row(form.oldpassword) }} #}
+        {# {{ form_row(form.password) }} #}
+		{# {{ form_end(form) }}   #}
+		{{ form(form) }}
+		{# <button class="btn btn-lg btn-primary" type="submit">
 			Modifier
-		</button>
-	</form>
+		</button> #}
+	{# </form> #}
+	{# var_dump($utilisateur); #}
+	{# <?=
+	var_dump($newEncodedPassword);
+	?> #}
 {% endblock %}

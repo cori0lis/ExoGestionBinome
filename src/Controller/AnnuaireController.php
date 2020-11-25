@@ -3,9 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Utilisateur;
+use App\Form\ChangePasswordType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AnnuaireController extends AbstractController
 {
@@ -32,5 +36,50 @@ class AnnuaireController extends AbstractController
     public function show(Utilisateur $utilisateur): Response
     {
         return $this->render('annuaire/show.html.twig', ['utilisateur' => $utilisateur]);
+    }
+
+    /**
+     * @Route("/changepassword/{id}", name="app_changepassword")
+     */
+    public function changePassword(
+        Utilisateur $utilisateur,
+        UserPasswordEncoderInterface $passwordEncoder,
+        Request $request,
+        EntityManagerInterface $manager
+    ) {
+        $form = $this->createForm(ChangePasswordType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $oldpassword = $form->get('oldpassword')->getData();
+
+            if ($passwordEncoder->isPasswordValid($utilisateur, $oldpassword)) {
+                $newEncodedPassword = $passwordEncoder->encodePassword(
+                    $utilisateur,
+                    $form->get('password')->getData()
+                );
+                // var_dump($newEncodedPassword);
+                // die;
+
+                $utilisateur->setPassword($newEncodedPassword);
+
+
+                // var_dump($utilisateur);
+                // die;
+
+                $manager->flush();
+
+                $this->addFlash(
+                    'success',
+                    "Votre mdp a été modifié"
+                );
+
+                return $this->redirectToRoute('annuaire');
+            }
+        }
+
+        return $this->render('security/changePw.html.twig', array(
+            'form' => $form->createView(),
+            'title' => 'modification MDP'
+        ));
     }
 }
