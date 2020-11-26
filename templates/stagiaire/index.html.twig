@@ -4,7 +4,7 @@
 	<h1>Annuaire des Stagiaires</h1>
 	<a type="button" class="btn btn-success ajouter" href="
 		
-		{# {{ path('stagiaire_add')}} #}
+		{{ path('stagiaire_add')}}
 		
 		">Ajouter</a>
 
@@ -38,7 +38,7 @@
 				<td>{{ stagiaire.cp }}</td>
 				<td>
 					<a type="button" class="btn btn-warning" href="
-						                {# {{ path('stagiaire_edit', {'id':stagiaire.id}) }} #}
+						                {{ path('stagiaire_edit', {'id':stagiaire.id}) }}
 						                ">Modifier</a>
 				</td>
 				<td>
