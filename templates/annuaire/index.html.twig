@@ -42,9 +42,15 @@
 					<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier</a>
 				</td>
 				<td>
-					<a type="button" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer</a>
+					<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer</a>
 				</td>
 			</tr>
 		{% endfor %}
 	</tbody>
-</table>{% endblock %}
+</table>
+<script language="JavaScript" type="text/javascript"> //https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
+function checkDelete(){
+    return confirm('Appuyez sur OK pour supprimer. Sinon veuillez Annuler');
+}
+</script>
+{% endblock %}
