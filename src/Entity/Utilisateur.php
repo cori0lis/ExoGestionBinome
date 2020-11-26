@@ -81,6 +81,11 @@ class Utilisateur implements UserInterface
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resetToken;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -287,5 +292,17 @@ class Utilisateur implements UserInterface
     public function __toString()
     {
         return $this->nom . " " . $this->prenom;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
+
+        return $this;
     }
 }
