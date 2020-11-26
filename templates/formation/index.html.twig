@@ -4,9 +4,9 @@
 	<h1>Annuaire des Formations</h1>
 	<a type="button" class="btn btn-success ajouter" href="
 		
-				{# {{ path('formation_add')}} #}
+						{{ path('formation_add')}}
 		
-				">Ajouter</a>
+						">Ajouter</a>
 
 
 	<table class="table">
@@ -14,35 +14,37 @@
 			<th>NOM</th>
 			<th>DESCRIPTION</th>
 			{# <th>SESSIONS</th>
-			<th>DUREE</th>
-			<th>MODULES</th>
-			<th>CATEGORIE</th>
-			<th>FORMATEUR</th> #}
+						<th>DUREE</th>
+						<th>MODULES</th>
+						<th>CATEGORIE</th>
+						<th>FORMATEUR</th> #}
 			<th>Modifier</th>
 			<th>Supprimer</th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for formation in formations %}
-			<tr>
+			<tr class="clickabletablerow" onclick="window.location='{{ path('formation_show', {'id':formation.id}) }}';">
 				<td>{{ formation.nom }}</td>
 				<td>{{ formation.description }}</td>
 				{# <td>{{ formation.sessions }}</td>
-				<td>{{ formation.duree }}</td>
-				<td>{{ formation.modules }}</td>
-				<td>{{ formation.categorie }}</td>
-				<td>{{ formation.formateur }}</td> #}
+								<td>{{ formation.duree }}</td>
+								<td>{{ formation.modules }}</td>
+								<td>{{ formation.categorie }}</td>
+								<td>{{ formation.formateur }}</td> #}
 				<td>
-					<a type="button" class="btn btn-warning" href="
-												                {# {{ path('formation_edit', {'id':formation.id}) }} #}
-												                ">Modifier</a>
+					<a type="button" class="btn btn-warning" href="{{ path('formation_edit', {'id':formation.id}) }}">Modifier</a>
 				</td>
 				<td>
-					<a type="button" class="btn btn-danger" href="
-												                {# {{ path('formation_delete', {'id':formation.id}) }} #}
-												                ">Supprimer</a>
+					<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('formation_delete', {'id':formation.id}) }}">Supprimer</a>
 				</td>
 			</tr>
 		{% endfor %}
 	</tbody>
-</table>{% endblock %}
+</table>
+<script language="JavaScript" type="text/javascript">
+	// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
+function checkDelete() {
+return confirm('Appuyez sur OK pour supprimer. Sinon veuillez Annuler');
+}
+</script>{% endblock %}
