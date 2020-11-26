@@ -5,13 +5,13 @@
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
 	{# <p>Nom : {{ stagiaire.nom ~ ' ' ~ stagiaire.prenom }}</p>
-		<p>Civilité : {{ stagiaire.civilite }}</p>
-		<p>Adresse mail : <a href="mailto:{{ stagiaire.email }}">{{ stagiaire.email }}</a></p>
-		<p>Téléphone : {{ stagiaire.telephone }}</p>
-		<p>Date de naissance : {{ stagiaire.dateNaissance | date ('d/m/Y') }}</p>
-		<p>Ville : {{ stagiaire.ville }}</p>
-		<p>Adresse : {{ stagiaire.adresse }}</p>
-		<p>Code Postal : {{ stagiaire.cp }}</p> #}
+				<p>Civilité : {{ stagiaire.civilite }}</p>
+				<p>Adresse mail : <a href="mailto:{{ stagiaire.email }}">{{ stagiaire.email }}</a></p>
+				<p>Téléphone : {{ stagiaire.telephone }}</p>
+				<p>Date de naissance : {{ stagiaire.dateNaissance | date ('d/m/Y') }}</p>
+				<p>Ville : {{ stagiaire.ville }}</p>
+				<p>Adresse : {{ stagiaire.adresse }}</p>
+				<p>Code Postal : {{ stagiaire.cp }}</p> #}
 	<table>
 		<tr>
 			<th>Nom :</th>
@@ -49,4 +49,13 @@
 		</tr>
 	</table>
 	<a type="button" class="btn btn-warning" href="{{ path('stagiaire_edit', {'id':stagiaire.id}) }}">Modifier</a>
+	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('stagiaire_delete', {'id':stagiaire.id}) }}">Supprimer</a>
+	<script language="JavaScript" type="text/javascript">
+		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
+// https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3
+function checkDelete() {
+return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
+}
+// ATTENTION QUAND CANCEL LE ONCLICK DU <tr> EST QUAND MEME ACTIVE
+	</script>
 {% endblock %}

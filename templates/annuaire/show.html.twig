@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block contenu %}
-<a type="button" href="{{ path('annuaire')}}" class="btn" style="padding-left: 0;"><i class="fas fa-arrow-left" style="font-size: 3rem"></i></a>
+	<a type="button" href="{{ path('annuaire')}}" class="btn" style="padding-left: 0;">
+		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
+	</a>
 	{# <p>Nom : {{ utilisateur.nom ~ ' ' ~ utilisateur.prenom }}</p> #}
 	{# <p>Civilité :{{ utilisateur.civilite }}</p> #}
 	{# <p>Adresse mail : <a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a></p> #}
@@ -11,18 +13,17 @@
 	{# <p>Adresse : {{ utilisateur.adresse }}</p> #}
 	{# <p>Code Postal : {{ utilisateur.cp }}</p> #}
 		<table>
-		<tr>
-			<th>Nom :</th>
-			<td>{{ utilisateur.nom ~ ' ' ~ utilisateur.prenom }}</td>
+			<tr><th>Nom :
+			</th><td>{{ utilisateur.nom ~ ' ' ~ utilisateur.prenom }}
+		</td>
 		</tr>
-		<tr>
-			<th>Civilité :</th>
-			<td>{{ utilisateur.civilite }}</td>
+			<tr><th>Civilité :
+			</th><td>{{ utilisateur.civilite }}
+		</td>
 		</tr>
-		<tr>
-			<th>Adresse mail :</th>
-			<td>
-				<a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a>
+			<tr><th>Adresse mail :
+			</th>
+				<td><a href="mailto:{{ utilisateur.email }}"> {{ utilisateur.email }}</a>
 			</td>
 		</tr>
 		<tr>
@@ -46,8 +47,17 @@
 			<td>{{ utilisateur.cp }}</td>
 		</tr>
 	</table>
-		<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier</a>
+	<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier</a>
 	{% if app.user.id == utilisateur.id %}
-	<a type="button" class="btn btn-warning" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier MDP</a>
+		<a type="button" class="btn btn-warning" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier MDP</a>
 	{% endif %}
+	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer</a>
+	<script language="JavaScript" type="text/javascript">
+		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
+// https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3
+function checkDelete() {
+return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
+}
+// ATTENTION QUAND CANCEL LE ONCLICK DU <tr> EST QUAND MEME ACTIVE
+	</script>
 {% endblock %}
