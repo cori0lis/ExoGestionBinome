@@ -4,9 +4,9 @@
 	<h1>Annuaire des Employés</h1>
 	<a type="button" class="btn btn-success ajouter" href="
 		
-		{{ path('app_register')}}
+				{{ path('app_register')}}
 		
-		">Ajouter</a>
+				">Ajouter</a>
 
 
 	<table class="table">
@@ -28,11 +28,15 @@
 	<tbody>
 		{% for utilisateur in utilisateurs %}
 			<tr class="clickabletablerow" onclick="window.location='{{ path('annuaire_show', {'id':utilisateur.id}) }}';">
-				<td><a href="{{ path('annuaire_show', {'id':utilisateur.id}) }}">{{ utilisateur.nom }}</a></td>
+				<td>
+					<a href="{{ path('annuaire_show', {'id':utilisateur.id}) }}">{{ utilisateur.nom }}</a>
+				</td>
 				<td>{{ utilisateur.prenom }}</td>
 				{# <td>{{ utilisateur.role }}</td> #}
 				<td>{{ utilisateur.civilite }}</td>
-				<td><a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a></td>
+				<td>
+					<a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a>
+				</td>
 				<td>{{ utilisateur.telephone }}</td>
 				<td>{{ utilisateur.dateNaissance | date ('d/m/Y') }}</td>
 				<td>{{ utilisateur.ville }}</td>
@@ -48,9 +52,11 @@
 		{% endfor %}
 	</tbody>
 </table>
-<script language="JavaScript" type="text/javascript"> //https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
-function checkDelete(){
-    return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
+<script language="JavaScript" type="text/javascript">
+	// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
+// https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3
+function checkDelete() {
+return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
 }
-</script>
-{% endblock %}
+// ATTENTION QUAND CANCEL LE ONCLICK DU <tr> EST QUAND MEME ACTIVE
+</script>{% endblock %}
