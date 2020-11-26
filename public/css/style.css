@@ -29,4 +29,5 @@
 
 .clickabletablerow:hover {
   cursor: pointer;
+  background-color: #ffff0084;
 }
