@@ -28,9 +28,7 @@
 	<tbody>
 		{% for utilisateur in utilisateurs %}
 			<tr class="clickabletablerow" onclick="window.location='{{ path('annuaire_show', {'id':utilisateur.id}) }}';">
-				<td>
-					<a href="{{ path('annuaire_show', {'id':utilisateur.id}) }}">{{ utilisateur.nom }}</a>
-				</td>
+				<td>{{ utilisateur.nom }}</td>
 				<td>{{ utilisateur.prenom }}</td>
 				{# <td>{{ utilisateur.role }}</td> #}
 				<td>{{ utilisateur.civilite }}</td>
