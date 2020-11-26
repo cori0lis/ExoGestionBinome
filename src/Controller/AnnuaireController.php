@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Utilisateur;
+use App\Form\UtilisateurType;
 use App\Form\ChangePasswordType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +14,43 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AnnuaireController extends AbstractController
 {
+    /**
+     * @Route("/annuaire/add", name="annuaire_add")
+     * @Route("/annuaire/{id}/edit", name="annuaire_edit")
+     */
+    public function new_update(Utilisateur $utilisateur = null, Request $request, EntityManagerInterface $manager)
+    {
+
+        if (!$utilisateur) {
+            $utilisateur = new Utilisateur();
+        }
+
+        $form = $this->createForm(UtilisateurType::class, $utilisateur);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->persist($utilisateur);
+            $manager->flush();
+
+            return $this->redirectToRoute('annuaire');
+        }
+
+        return $this->render('annuaire/add_edit.html.twig', [
+            'formAnnuaire' => $form->createView(),
+            'editMode' => $utilisateur->getId() !== null,
+            'utilisateur' => $utilisateur
+        ]);
+    }
+    /**
+     * @Route("annuaire/{id}/delete", name="annuaire_delete")
+     */
+    public function deleteUtilisateur(Utilisateur $utilisateur = null, EntityManagerInterface $manager)
+    {
+        $manager->remove($utilisateur);
+        $manager->flush();
+
+        return $this->redirectToRoute('annuaire');
+    }
     /**
      * @Route("/annuaire", name="annuaire")
      */

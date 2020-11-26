@@ -37,14 +37,10 @@
 				<td>{{ stagiaire.adresse }}</td>
 				<td>{{ stagiaire.cp }}</td>
 				<td>
-					<a type="button" class="btn btn-warning" href="
-						                {{ path('stagiaire_edit', {'id':stagiaire.id}) }}
-						                ">Modifier</a>
+					<a type="button" class="btn btn-warning" href="{{ path('stagiaire_edit', {'id':stagiaire.id}) }}">Modifier</a>
 				</td>
 				<td>
-					<a type="button" class="btn btn-danger" href="
-						                {# {{ path('stagiaire_delete', {'id':stagiaire.id}) }} #}
-						                ">Supprimer</a>
+					<a type="button" class="btn btn-danger" href="{{ path('stagiaire_delete', {'id':stagiaire.id}) }}">Supprimer</a>
 				</td>
 			</tr>
 		{% endfor %}
