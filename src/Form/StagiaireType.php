@@ -6,6 +6,7 @@ use App\Entity\Stagiaire;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -24,7 +25,12 @@ class StagiaireType extends AbstractType
             ->add('civilite', TextType::class, [
                 'required' => true
             ])
-            ->add('dateNaissance')
+            ->add('dateNaissance', DateType::class, [
+                'years' => range(date('Y'), date('Y') - 70),
+                'label' => 'Date de naissance',
+                'format' => 'ddMMMMyyyy',
+                'required' => true
+            ])
             ->add('ville', TextType::class, [
                 'required' => true
             ])
