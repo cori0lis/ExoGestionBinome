@@ -59,9 +59,9 @@ class SecurityController extends AbstractController
 // return $this -> render('security/forgotten_password.html.twig', ['title' => 'requete mdp']);
 // }
 
-/**
- * @Route("/reset_password/{token}", name="reset_password")
- */
+// /**
+//  * @Route("/reset_password/{token}", name="reset_password")
+//  */
 
     // public function resetPassword(EntityManagerInterface $manager, Request $request, UserPasswordEncoderInterface $passwordEncoder, string $token){
 // si methode POST
