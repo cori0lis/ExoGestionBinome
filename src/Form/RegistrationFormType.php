@@ -74,7 +74,11 @@ class RegistrationFormType extends AbstractType
                 'format' => 'ddMMMMyyyy',
                 'required' => true
             ])
-            ->add('civilite', TextType::class, [
+            ->add('civilite', ChoiceType::class, [
+                'choices' => [
+                    'Femme' => 'F',
+                    'Homme' => 'M'
+                ],
                 'required' => true
             ])
             ->add('telephone', TextType::class, [

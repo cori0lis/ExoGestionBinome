@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class StagiaireType extends AbstractType
@@ -22,7 +23,11 @@ class StagiaireType extends AbstractType
             ->add('prenom', TextType::class, [
                 'required' => true
             ])
-            ->add('civilite', TextType::class, [
+            ->add('civilite', ChoiceType::class, [
+                'choices' => [
+                    'Femme' => 'F',
+                    'Homme' => 'M'
+                ],
                 'required' => true
             ])
             ->add('dateNaissance', DateType::class, [
@@ -47,8 +52,7 @@ class StagiaireType extends AbstractType
                 'required' => true
             ])
             // ->add('sessions')
-            ->add('valider', SubmitType::class);
-        ;
+            ->add('valider', SubmitType::class);;
     }
 
     public function configureOptions(OptionsResolver $resolver)
