@@ -26,7 +26,7 @@ class UtilisateurType extends AbstractType
             ->add('civilite', ChoiceType::class, [
                 'choices' => [
                     'Femme' => 'F',
-                    'Homme' => 'M'
+                    'Homme' => 'H'
                 ],
                 'required' => true
             ])
