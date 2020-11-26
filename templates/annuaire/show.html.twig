@@ -46,6 +46,7 @@
 			<td>{{ utilisateur.cp }}</td>
 		</tr>
 	</table>
+		<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier</a>
 	{% if app.user.id == utilisateur.id %}
 	<a type="button" class="btn btn-warning" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier MDP</a>
 	{% endif %}
