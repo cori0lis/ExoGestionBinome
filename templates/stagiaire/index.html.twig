@@ -27,7 +27,7 @@
 	<tbody>
 		{% for stagiaire in stagiaires %}
 			<tr class="clickabletablerow" onclick="window.location='{{ path('stagiaire_show', {'id':stagiaire.id}) }}';">
-				<td><a href="{{ path('stagiaire_show', {'id':stagiaire.id}) }}">{{ stagiaire.nom }}</a></td>
+				<td>{{ stagiaire.nom }}</td>
 				<td>{{ stagiaire.prenom }}</td>
 				<td>{{ stagiaire.civilite }}</td>
 				<td><a href="mailto:{{ stagiaire.email }}">{{ stagiaire.email }}</a></td>
