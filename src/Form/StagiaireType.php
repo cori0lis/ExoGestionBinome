@@ -26,7 +26,7 @@ class StagiaireType extends AbstractType
                 'required' => true
             ])
             ->add('dateNaissance', DateType::class, [
-                'years' => range(date('Y'), date('Y') - 70),
+                'years' => range(date('Y'), date('Y') - 100),
                 'label' => 'Date de naissance',
                 'format' => 'ddMMMMyyyy',
                 'required' => true
