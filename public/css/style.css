@@ -26,3 +26,7 @@
 #navbarSupportedContent {
   justify-content: space-between;
 }
+
+.clickabletablerow:hover {
+  cursor: pointer;
+}
