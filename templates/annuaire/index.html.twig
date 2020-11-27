@@ -2,11 +2,9 @@
 
 {% block contenu %}
 	<h1>Annuaire des Employés</h1>
-	<a type="button" class="btn btn-success ajouter" href="
-		
-										{{ path('app_register')}}
-		
-										">Ajouter</a>
+	{% if is_granted('ROLE_SUPER_ADMIN') %}
+	<a type="button" class="btn btn-success ajouter" href="{{ path('app_register')}}">Ajouter</a>
+	{% endif %}
 
 
 	<table class="table">
