@@ -23,18 +23,38 @@
 		</tr>
 			<tr>
 				<th>
-			Civilité :
+			Role :
 			</th>
 				<td>
-			{{ utilisateur.civilite }}
-		</td>
+					{# {% if ('ROLE_ADMIN' in utilisateur.getroles(TRUE)) and ('ROLE_USER' in utilisateur.getroles(FALSE)) %}
+					Secrétaire
+				{% elseif ('ROLE_USER' in utilisateur.getroles(TRUE)) and ('ROLE_ADMIN' in utilisateur.getroles(FALSE)) %}
+					Formateur
+				{% elseif (['ROLE_USER','ROLE_ADMIN'] in utilisateur.getroles(TRUE)) %}
+					Secrétaire et Formateur
+				{% else %}
+					pas de role
+				{% endif %} #}
+				{% if ('ROLE_ADMIN' in utilisateur.getroles(TRUE)) and ('ROLE_USER' in utilisateur.getroles(TRUE)) %}
+					Secrétaire et Formateur
+					{% endif %}
+			</td>
 		</tr>
-			<tr>
-				<th>
-			Adresse mail :
+		<tr>
+			<th>
+				Civilité :
 			</th>
-				<td>
-					<a href="mailto:{{ utilisateur.email }}"> {{ utilisateur.email }}</a>
+			<td>
+				{{ utilisateur.civilite }}
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Adresse mail :
+			</th>
+			<td>
+				<a href="mailto:{{ utilisateur.email }}">
+					{{ utilisateur.email }}</a>
 			</td>
 		</tr>
 		<tr>
@@ -64,7 +84,7 @@
 		<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer mon profil</a>
 	{% else %}
 		<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier profil</a>
-		<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer profil</a>
+		<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer l'employé</a>
 	{% endif %}
 	<script language="JavaScript" type="text/javascript">
 		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
