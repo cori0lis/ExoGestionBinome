@@ -26,18 +26,13 @@
 			Role :
 			</th>
 				<td>
-					{# {% if ('ROLE_ADMIN' in utilisateur.getroles(TRUE)) and ('ROLE_USER' in utilisateur.getroles(FALSE)) %}
+					{% if ('ROLE_USER' and 'ROLE_ADMIN' in utilisateur.getroles(TRUE)) %}
+					Secrétaire et Formateur
+				{% elseif ('ROLE_ADMIN' in utilisateur.getroles(TRUE)) %}
 					Secrétaire
-				{% elseif ('ROLE_USER' in utilisateur.getroles(TRUE)) and ('ROLE_ADMIN' in utilisateur.getroles(FALSE)) %}
+				{% elseif ('ROLE_USER' in utilisateur.getroles(TRUE)) %}
 					Formateur
-				{% elseif (['ROLE_USER','ROLE_ADMIN'] in utilisateur.getroles(TRUE)) %}
-					Secrétaire et Formateur
-				{% else %}
-					pas de role
-				{% endif %} #}
-				{% if ('ROLE_ADMIN' in utilisateur.getroles(TRUE)) and ('ROLE_USER' in utilisateur.getroles(TRUE)) %}
-					Secrétaire et Formateur
-					{% endif %}
+				{% endif %}
 			</td>
 		</tr>
 		<tr>
