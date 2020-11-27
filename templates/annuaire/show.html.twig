@@ -26,8 +26,9 @@
 			Role :
 			</th>
 				<td>
-					{% if ('ROLE_USER' and 'ROLE_ADMIN' in utilisateur.getroles(TRUE)) %}
-					Secrétaire et Formateur
+				{# {{ utilisateur.getRoles }} #}
+					{% if ('ROLE_SUPER_ADMIN' in utilisateur.getroles(TRUE)) %}
+					Direction
 				{% elseif ('ROLE_ADMIN' in utilisateur.getroles(TRUE)) %}
 					Secrétaire
 				{% elseif ('ROLE_USER' in utilisateur.getroles(TRUE)) %}

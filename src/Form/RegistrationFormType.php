@@ -56,8 +56,9 @@ class RegistrationFormType extends AbstractType
                     'multiple data-live-search' => 'true',
                 ],
                 'choices' => [
-                    'user' => 'ROLE_USER',
-                    'admin' => 'ROLE_ADMIN'
+                    'Formateur' => 'ROLE_USER',
+                    'Secretariat' => 'ROLE_ADMIN',
+                    'Direction' => 'ROLE_SUPER_ADMIN'
                 ],
                 'multiple' => true,
                 'required' => true,
