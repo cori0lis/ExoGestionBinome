@@ -1,7 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ModuleController!{% endblock %}
-
-
 {% block contenu %}
-{% endblock %}
+	<h1>Annuaire des Modules</h1>
+	{% if is_granted('ROLE_ADMIN') %}
+	<a type="button" class="btn btn-success ajouter" href="{{ path('module_add')}}">Ajouter</a>
+						{% endif %}
+
+
+	<table class="table">
+		<tr>
+			<th>NOM</th>
+			<th>DESCRIPTION</th>
+			{# <th>SESSIONS</th>
+						<th>DUREE</th>
+						<th>MODULES</th>
+						<th>CATEGORIE</th>
+						<th>FORMATEUR</th> #}
+						{% if is_granted('ROLE_ADMIN') %}
+			<th>Modifier</th>
+			<th>Supprimer</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for module in modules %}
+			<tr class="clickabletablerow" onclick="window.location='{{ path('module_show', {'id':module.id}) }}';">
+				<td>{{ module.nom }}</td>
+				<td>{{ module.description }}</td>
+				{# <td>{{ module.sessions }}</td>
+								<td>{{ module.duree }}</td>
+								<td>{{ module.modules }}</td>
+								<td>{{ module.categorie }}</td>
+								<td>{{ module.formateur }}</td> #}
+								{% if is_granted('ROLE_ADMIN') %}
+				<td>
+					<a type="button" class="btn btn-warning" href="{{ path('module_edit', {'id':module.id}) }}">Modifier</a>
+				</td>
+				<td>
+					<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('module_delete', {'id':module.id}) }}">Supprimer</a>
+				</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<script language="JavaScript" type="text/javascript">
+	// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
+function checkDelete() {
+return confirm('Appuyez sur OK pour supprimer. Sinon veuillez Annuler');
+}
+</script>{% endblock %}

@@ -3,7 +3,7 @@
 {% set text = (editMode) ? 'Modifier':'Ajouter' %}
 
 {% block title %}
-Une Formation
+Un Stagiaire
 {% endblock %}
 
 {% block contenu %}
@@ -11,8 +11,8 @@ Une Formation
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
 
-  <h1>{{ text }} Formation <span>{{ formation }}</span></h1>
+  <h1>{{ text }} Module <span>{{ module }}</span></h1>
 
-    {{ form(formFormation) }}
+    {{ form(formModule) }}
 
 {% endblock %}
