@@ -53,6 +53,11 @@
 						<a class="nav-link btn" href="{{ path('stagiaire')}}">Stagiaires</a>
 						<a class="nav-link btn" href="{{ path('formation')}}">Formations</a>
 						<a class="nav-link btn" href="{{ path('annuaire')}}">Annuaire</a>
+						{% if is_granted('ROLE_ADMIN') %}
+						<a class="nav-link btn" href="{{ path('categorie')}}">Categories</a>
+						<a class="nav-link btn" href="{{ path('session')}}">Sessions</a>
+						<a class="nav-link btn" href="{{ path('module')}}">Modules</a>
+						{% endif %}
 					</div>
 				</div>
 			<div class="wrapper2"> {% block contenu %}{% endblock %}
