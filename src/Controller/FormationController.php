@@ -13,8 +13,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class FormationController extends AbstractController
 {
     /**
-     * @Route("/formation/add", name="formation_add")
-     * @Route("/formation/{id}/edit", name="formation_edit")
+     * @Route("/admin/formation/add", name="formation_add")
+     * @Route("/admin/formation/{id}/edit", name="formation_edit")
      */
     public function new_update(Formation $formation = null, Request $request, EntityManagerInterface $manager)
     {
@@ -40,7 +40,7 @@ class FormationController extends AbstractController
         ]);
     }
     /**
-     * @Route("formation/{id}/delete", name="formation_delete")
+     * @Route("/admin/formation/{id}/delete", name="formation_delete")
      */
     public function deleteFormation(Formation $formation = null, EntityManagerInterface $manager)
     {

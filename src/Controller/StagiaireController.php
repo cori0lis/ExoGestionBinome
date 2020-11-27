@@ -22,8 +22,8 @@ class StagiaireController extends AbstractController
     //     ]);
     // }
     /**
-     * @Route("/stagiaire/add", name="stagiaire_add")
-     * @Route("/stagiaire/{id}/edit", name="stagiaire_edit")
+     * @Route("/admin/stagiaire/add", name="stagiaire_add")
+     * @Route("/admin/stagiaire/{id}/edit", name="stagiaire_edit")
      */
     public function new_update(Stagiaire $stagiaire = null, Request $request, EntityManagerInterface $manager)
     {
@@ -49,7 +49,7 @@ class StagiaireController extends AbstractController
         ]);
     }
     /**
-     * @Route("stagiaire/{id}/delete", name="stagiaire_delete")
+     * @Route("/admin/stagiaire/{id}/delete", name="stagiaire_delete")
      */
     public function deleteStagiaire(Stagiaire $stagiaire = null, EntityManagerInterface $manager)
     {

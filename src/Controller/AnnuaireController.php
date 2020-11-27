@@ -42,7 +42,7 @@ class AnnuaireController extends AbstractController
         ]);
     }
     /**
-     * @Route("annuaire/{id}/delete", name="annuaire_delete")
+     * @Route("/direction/annuaire/{id}/delete", name="annuaire_delete")
      */
     public function deleteUtilisateur(Utilisateur $utilisateur = null, EntityManagerInterface $manager)
     {

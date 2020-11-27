@@ -23,6 +23,8 @@
 			<th>CP</th>
 			{% if is_granted('ROLE_ADMIN') %}
 				<th>Modifier</th>
+			{% endif %}
+			{% if is_granted('ROLE_SUPER_ADMIN') %}
 				<th>Supprimer</th>
 			{% endif %}
 		</tr>
@@ -46,10 +48,12 @@
 					<td>
 						<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier</a>
 					</td>
+				{% endif %}
+				{% if is_granted('ROLE_SUPER_ADMIN') %}
 					<td>
 						<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer</a>
 					</td>
-				{% endif %}
+					{% endif %}
 			</tr>
 		{% endfor %}
 	</tbody>
