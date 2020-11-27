@@ -78,7 +78,7 @@
 		<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier mon profil</a>
 		<a type="button" class="btn btn-info" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier mon MDP</a>
 		<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer mon profil</a>
-	{% else %}
+	{% elseif is_granted('ROLE_ADMIN') %}
 		<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier profil</a>
 		<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer l'employé</a>
 	{% endif %}
