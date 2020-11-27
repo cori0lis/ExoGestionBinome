@@ -4,9 +4,9 @@
 	<h1>Annuaire des Employés</h1>
 	<a type="button" class="btn btn-success ajouter" href="
 		
-				{{ path('app_register')}}
+										{{ path('app_register')}}
 		
-				">Ajouter</a>
+										">Ajouter</a>
 
 
 	<table class="table">
@@ -21,8 +21,10 @@
 			<th>VILLE</th>
 			<th>ADRESSE</th>
 			<th>CP</th>
-			<th>Modifier</th>
-			<th>Supprimer</th>
+			{% if is_granted('ROLE_ADMIN') %}
+				<th>Modifier</th>
+				<th>Supprimer</th>
+			{% endif %}
 		</tr>
 	</thead>
 	<tbody>
@@ -40,12 +42,14 @@
 				<td>{{ utilisateur.ville }}</td>
 				<td>{{ utilisateur.adresse }}</td>
 				<td>{{ utilisateur.cp }}</td>
-				<td>
-					<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier</a>
-				</td>
-				<td>
-					<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer</a>
-				</td>
+				{% if is_granted('ROLE_ADMIN') %}
+					<td>
+						<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier</a>
+					</td>
+					<td>
+						<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer</a>
+					</td>
+				{% endif %}
 			</tr>
 		{% endfor %}
 	</tbody>

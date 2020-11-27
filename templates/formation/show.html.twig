@@ -22,6 +22,7 @@
 			<td>{{ formation.description }}</td>
 		</tr>
 	</table>
+	{% if is_granted('ROLE_ADMIN') %}
 	<a type="button" class="btn btn-warning" href="{{ path('formation_edit', {'id':formation.id}) }}">Modifier profil</a>
 	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('formation_delete', {'id':formation.id}) }}">Supprimer le formation</a>
 	<script language="JavaScript" type="text/javascript">
@@ -32,4 +33,5 @@ return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
 }
 // ATTENTION QUAND CANCEL LE ONCLICK DU <tr> EST QUAND MEME ACTIVE
 	</script>
+	{% endif %}
 {% endblock %}
