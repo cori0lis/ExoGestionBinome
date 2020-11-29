@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% set text = (editMode) ? 'Modifier':'Ajouter' %}
+
+{% block title %}
+Un Session
+{% endblock %}
+
+{% block contenu %}
+<a type="button" onclick="history.go(-1);" class="btn" style="padding-left: 0;">
+		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
+	</a>
+
+  <h1>{{ text }} Session <span>{{ session.nom }}</span></h1>
+
+    {{ form(formSession) }}
+
+{% endblock %}

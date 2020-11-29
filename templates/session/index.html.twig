@@ -1,7 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ModuleController!{% endblock %}
-
-
 {% block contenu %}
-{% endblock %}
+	<h1>Annuaire des Sessions</h1>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a type="button" class="btn btn-success ajouter" href="{{ path('session_add')}}">Ajouter</a>
+	{% endif %}
+
+
+	<table class="table">
+		<tr>
+			<th>NOM</th>
+			<th>Formation</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Nombre places</th>
+			{% if is_granted('ROLE_ADMIN') %}
+				<th>Modifier</th>
+				<th>Supprimer</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for session in sessions %}
+			<tr class="clickabletablerow" onclick="window.location='{{ path('session_show', {'id':session.id}) }}';">
+				<td>{{ session.nom }}</td>
+				<td>{{ session.formation.nom }}</td>
+                <td>{{ session.dateDebut | date ('d/m/Y') }}</td>
+                <td>{{ session.dateFin | date ('d/m/Y') }}</td>
+                <td>{{ session.nombrePlaces }}</td>
+				{% if is_granted('ROLE_ADMIN') %}
+					<td>
+						<a type="button" class="btn btn-warning" href="{{ path('session_edit', {'id':session.id}) }}">Modifier</a>
+					</td>
+					<td>
+						<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('session_delete', {'id':session.id}) }}">Supprimer</a>
+					</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<script language="JavaScript" type="text/javascript">
+	// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
+function checkDelete() {
+return confirm('Appuyez sur OK pour supprimer. Sinon veuillez Annuler');
+}
+</script>{% endblock %}

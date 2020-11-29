@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+	<a type="button" href="{{ path('session')}}" class="btn" style="padding-left: 0;">
+		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
+	</a>
+	<table>
+		<tr>
+			<th>Nom :</th>
+			<td>{{ session.nom }}</td>
+		</tr>
+		<tr>
+			<th>Formation :</th>
+			<td>{{ session.formation.nom }}</td>
+		</tr>
+		<tr>
+			<th>Date début :</th>
+			<td>{{ session.dateDebut | date ('d/m/Y') }}</td>
+		</tr>
+		<tr>
+			<th>Date fin :</th>
+			<td>{{ session.dateFin | date ('d/m/Y') }}</td>
+		</tr>
+		<tr>
+			<th>Nombre places :</th>
+			<td>{{ session.nombrePlaces }}</td>
+		</tr>
+	</table>
+	{% if is_granted('ROLE_ADMIN') %}
+	<a type="button" class="btn btn-warning" href="{{ path('session_edit', {'id':session.id}) }}">Modifier profil</a>
+	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('session_delete', {'id':session.id}) }}">Supprimer la session</a>
+	<script language="JavaScript" type="text/javascript">
+		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
+// https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3
+function checkDelete() {
+return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
+}
+// ATTENTION QUAND CANCEL LE ONCLICK DU <tr> EST QUAND MEME ACTIVE
+	</script>
+	{% endif %}
+{% endblock %}
