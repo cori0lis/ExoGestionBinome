@@ -3,7 +3,7 @@
 {% set text = (editMode) ? 'Modifier':'Ajouter' %}
 
 {% block title %}
-Un Module
+Une Categorie
 {% endblock %}
 
 {% block contenu %}
@@ -11,8 +11,10 @@ Un Module
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
 
-  <h1>{{ text }} Module <span>{{ module.nom }}</span></h1>
+  <h1>{{ text }} Categorie 
+  <span>{{ categorie.nom }}</span>
+  </h1>
 
-    {{ form(formModule) }}
+    {{ form(formCategorie) }}
 
 {% endblock %}
