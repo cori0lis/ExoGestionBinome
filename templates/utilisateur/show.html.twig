@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block contenu %}
-	<a type="button" href="{{ path('annuaire')}}" class="btn" style="padding-left: 0;">
+	<a type="button" href="{{ path('utilisateur')}}" class="btn" style="padding-left: 0;">
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
 	{# <p>Nom : {{ utilisateur.nom ~ ' ' ~ utilisateur.prenom }}</p> #}
@@ -93,13 +93,13 @@
 		</tr>
 	</table>
 	{% if app.user.id == utilisateur.id %}
-		<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier mon profil</a>
+		<a type="button" class="btn btn-warning" href="{{ path('utilisateur_edit', {'id':utilisateur.id}) }}">Modifier mon profil</a>
 		<a type="button" class="btn btn-info" href="{{ path('app_changepassword', {'id':app.user.id}) }}">Modifier mon MDP</a>
 	{% elseif is_granted('ROLE_ADMIN') %}
-		<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier profil</a>
+		<a type="button" class="btn btn-warning" href="{{ path('utilisateur_edit', {'id':utilisateur.id}) }}">Modifier profil</a>
 	{% endif %}
 	{% if is_granted('ROLE_SUPER_ADMIN') %}
-		<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer l'employé</a>
+		<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('utilisateur_delete', {'id':utilisateur.id}) }}">Supprimer l'employé</a>
 	{% endif %}
 	<script language="JavaScript" type="text/javascript">
 		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website

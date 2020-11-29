@@ -16,7 +16,7 @@
 					{% if app.user %}
 						{# {% if is_granted('ROLE_ADMIN') %} #}
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="{{ path('annuaire') }}">
+				<a class="navbar-brand" href="{{ path('utilisateur') }}">
 					<img src="{{ asset('images/sharpener.svg') }}" width="30" height="30" alt="">
 					ExoGestionBinome</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
 										{{ app.user.prenom ~ ' ' ~ app.user.nom }}</p>
 								</li>
 								<li class="nav-item active">
-									<a class="nav-link" href="{{ path('annuaire_show', {'id':app.user.id}) }}">MON PROFIL
+									<a class="nav-link" href="{{ path('utilisateur_show', {'id':app.user.id}) }}">MON PROFIL
 									</a>
 								</li>
 								<li class="nav-item">
@@ -52,7 +52,7 @@
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 						<a class="nav-link btn" href="{{ path('stagiaire')}}">Stagiaires</a>
 						<a class="nav-link btn" href="{{ path('formation')}}">Formations</a>
-						<a class="nav-link btn" href="{{ path('annuaire')}}">Annuaire</a>
+						<a class="nav-link btn" href="{{ path('utilisateur')}}">Utilisateurs</a>
 						{% if is_granted('ROLE_ADMIN') %}
 						<a class="nav-link btn" href="{{ path('categorie')}}">Categories</a>
 						<a class="nav-link btn" href="{{ path('session')}}">Sessions</a>

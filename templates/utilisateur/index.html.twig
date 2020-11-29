@@ -29,7 +29,7 @@
 	</thead>
 	<tbody>
 		{% for utilisateur in utilisateurs %}
-			<tr class="clickabletablerow" onclick="window.location='{{ path('annuaire_show', {'id':utilisateur.id}) }}';">
+			<tr class="clickabletablerow" onclick="window.location='{{ path('utilisateur_show', {'id':utilisateur.id}) }}';">
 				<td>{{ utilisateur.nom }}</td>
 				<td>{{ utilisateur.prenom }}</td>
 				{# <td>{{ utilisateur.role }}</td> #}
@@ -44,12 +44,12 @@
 				<td>{{ utilisateur.cp }}</td>
 				{% if is_granted('ROLE_ADMIN') %}
 					<td>
-						<a type="button" class="btn btn-warning" href="{{ path('annuaire_edit', {'id':utilisateur.id}) }}">Modifier</a>
+						<a type="button" class="btn btn-warning" href="{{ path('utilisateur_edit', {'id':utilisateur.id}) }}">Modifier</a>
 					</td>
 				{% endif %}
 				{% if is_granted('ROLE_SUPER_ADMIN') %}
 					<td>
-						<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('annuaire_delete', {'id':utilisateur.id}) }}">Supprimer</a>
+						<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('utilisateur_delete', {'id':utilisateur.id}) }}">Supprimer</a>
 					</td>
 					{% endif %}
 			</tr>

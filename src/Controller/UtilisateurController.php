@@ -12,11 +12,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class AnnuaireController extends AbstractController
+class UtilisateurController extends AbstractController
 {
     /**
-     * @Route("/annuaire/add", name="annuaire_add")
-     * @Route("/annuaire/{id}/edit", name="annuaire_edit")
+     * @Route("/utilisateur/add", name="utilisateur_add")
+     * @Route("/utilisateur/{id}/edit", name="utilisateur_edit")
      */
     public function new_update(Utilisateur $utilisateur = null, Request $request, EntityManagerInterface $manager)
     {
@@ -32,32 +32,32 @@ class AnnuaireController extends AbstractController
             $manager->persist($utilisateur);
             $manager->flush();
 
-            return $this->redirectToRoute('annuaire');
+            return $this->redirectToRoute('utilisateur');
         }
 
-        return $this->render('annuaire/add_edit.html.twig', [
-            'formAnnuaire' => $form->createView(),
+        return $this->render('utilisateur/add_edit.html.twig', [
+            'formUtilisateur' => $form->createView(),
             'editMode' => $utilisateur->getId() !== null,
             'utilisateur' => $utilisateur
         ]);
     }
     /**
-     * @Route("/direction/annuaire/{id}/delete", name="annuaire_delete")
+     * @Route("/direction/utilisateur/{id}/delete", name="utilisateur_delete")
      */
     public function deleteUtilisateur(Utilisateur $utilisateur = null, EntityManagerInterface $manager)
     {
         $manager->remove($utilisateur);
         $manager->flush();
 
-        return $this->redirectToRoute('annuaire');
+        return $this->redirectToRoute('utilisateur');
     }
     /**
-     * @Route("/annuaire", name="annuaire")
+     * @Route("/utilisateur", name="utilisateur")
      */
     // public function index(): Response
     // {
-    //     return $this->render('annuaire/index.html.twig', [
-    //         'controller_name' => 'AnnuaireController',
+    //     return $this->render('utilisateur/index.html.twig', [
+    //         'controller_name' => 'utilisateurController',
     //     ]);
     // }
     public function index()
@@ -66,14 +66,14 @@ class AnnuaireController extends AbstractController
             ->getRepository(Utilisateur::class)
             ->findAll();
 
-        return $this->render('annuaire/index.html.twig', ['utilisateurs' => $utilisateurs,]);
+        return $this->render('utilisateur/index.html.twig', ['utilisateurs' => $utilisateurs,]);
     }
     /**
-     * @Route("/annuaire/{id}", name="annuaire_show", methods="GET")
+     * @Route("/utilisateur/{id}", name="utilisateur_show", methods="GET")
      */
     public function show(Utilisateur $utilisateur): Response
     {
-        return $this->render('annuaire/show.html.twig', ['utilisateur' => $utilisateur]);
+        return $this->render('utilisateur/show.html.twig', ['utilisateur' => $utilisateur]);
     }
 
     /**
@@ -111,7 +111,7 @@ class AnnuaireController extends AbstractController
                     "Votre mdp a été modifié"
                 );
 
-                return $this->redirectToRoute('annuaire');
+                return $this->redirectToRoute('utilisateur');
             }
         }
 
