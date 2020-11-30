@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .wrapper0 {
   display: flex;
   width: 100%;
@@ -30,4 +33,106 @@
 .clickabletablerow:hover {
   cursor: pointer;
   background-color: #d5f0f7;
+}
+
+#connexionbox {
+  display: flex;
+  width: 986px;
+  height: 614px;
+  background-color: #d5f0f7;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 49px;
+}
+#connexionboxinside1 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+#connexionboxinside2 {
+  display: flex;
+  width: 429px;
+  height: 459px;
+  background-color: white;
+  margin-left: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 45px;
+}
+#loginform {
+  margin: auto;
+  width: 85%;
+}
+#loginform input {
+  margin-top: 10%;
+}
+.loginbtn {
+  margin-top: 30%;
+  color: black;
+  background-color: #ffff00;
+  width: 160px;
+  min-height: 43px;
+  padding: 0;
+  text-transform: initial;
+  font-size: 14pt;
+  font-family: "OpenSans-Semibold", Arial;
+}
+#logintext {
+  text-transform: initial;
+  margin: 0;
+  margin-left: 0.3em;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  line-height: 67px;
+  text-align: left;
+  color: #252525;
+  font-size: 35pt;
+  font-family: 'OpenSans-Regular',Arial;
+  letter-spacing: 0;
+  font-weight: 100;
+}
+#logintitle {
+  color: #252525;
+  text-decoration: none;
+  font-family: "PingFang TC", Arial;
+  font-size: 28pt;
+  font-style: normal;
+  font-weight: 100 !important;
+  text-transform: initial;
+}
+#loginInputs {
+  margin-top: 30%;
+}
+#loginform input {
+  margin-top: 5%;
+  border-radius: 17px;
+}
+#yellowbox{
+  background-color: #ffff00b1;
+  width: 266px;
+  height: 66px;
+  -ms-transform: rotate(5deg); /* IE 9 */
+  transform: rotate(5deg);
+  position: absolute;
+  top: 45%;
+  left: -3em;
+  z-index: -1;
+}
+#whitecircle{
+  background-color: white;
+  width: 88px;
+  height: 94px;
+  border-radius: 100%;
+  position: absolute;
+  top: 30%;
+  left: 9em;
+  -ms-transform: rotate(97deg); /* IE 9 */
+  transform: rotate(97deg);
+  z-index: -1;
 }
