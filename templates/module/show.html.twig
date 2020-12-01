@@ -24,7 +24,7 @@
 	</table>
 	{% if is_granted('ROLE_ADMIN') %}
 	<a type="button" class="btn btn-warning" href="{{ path('module_edit', {'id':module.id}) }}">Modifier<a>
-	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('module_delete', {'id':module.id}) }}">Supprimer la module</a>
+	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('module_delete', {'id':module.id}) }}">Supprimer le module</a>
 	<script language="JavaScript" type="text/javascript">
 		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3
