@@ -119,4 +119,10 @@ return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
 document.getElementById("coloredselect3").style.background = "yellow";
 document.getElementById("coloredselect3").style.color = "black";
 </script>
+{% if app.user.id == utilisateur.id %}
+<script>
+document.getElementById("monprofilcolor").style.background = "yellow";
+document.getElementById("monprofilcolor").style.color = "black";
+</script>
+{% endif %}
 {% endblock %}
