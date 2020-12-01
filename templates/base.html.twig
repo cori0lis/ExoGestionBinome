@@ -13,6 +13,21 @@
 	</head>
 	<body>
 		{% block body %}
+		{# {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {% if message == ('warning') %}
+                <div class="flash-{{ label }} alert alert-success">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %} #}
 					{% if app.user %}
 						{# {% if is_granted('ROLE_ADMIN') %} #}
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">

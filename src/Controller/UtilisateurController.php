@@ -85,7 +85,8 @@ class UtilisateurController extends AbstractController
         Request $request,
         EntityManagerInterface $manager
     ) {
-        $form = $this->createForm(ChangePasswordType::class);
+        $utilisateur = $this->getUser();
+        $form = $this->createForm(ChangePasswordType::class, $utilisateur);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $oldpassword = $form->get('oldpassword')->getData();
@@ -112,7 +113,9 @@ class UtilisateurController extends AbstractController
                 );
 
                 return $this->redirectToRoute('utilisateur');
+
             }
+            else return $this->render('app_login');
         }
 
         return $this->render('security/changePw.html.twig', array(
