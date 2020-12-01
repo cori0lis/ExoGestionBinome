@@ -115,7 +115,7 @@ class UtilisateurController extends AbstractController
                 return $this->redirectToRoute('utilisateur');
 
             }
-            else return $this->render('app_login');
+            else return $this->redirectToRoute('app_login');
         }
 
         return $this->render('security/changePw.html.twig', array(
