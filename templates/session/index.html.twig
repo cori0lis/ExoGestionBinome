@@ -14,6 +14,7 @@
             <th>Date début</th>
             <th>Date fin</th>
             <th>Nombre places</th>
+			<th>Nombre places restantes</th>
 			{% if is_granted('ROLE_ADMIN') %}
 				<th>Modifier</th>
 				<th>Supprimer</th>
@@ -28,6 +29,7 @@
                 <td>{{ session.dateDebut | date ('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date ('d/m/Y') }}</td>
                 <td>{{ session.nombrePlaces }}</td>
+				<td>{{ session.nombrePlaces - session.stagiaire | length }}</td>{# https://stackoverflow.com/questions/17665271/counting-the-number-of-elements-in-array #}
 				{% if is_granted('ROLE_ADMIN') %}
 					<td>
 						<a type="button" class="btn btn-warning" href="{{ path('session_edit', {'id':session.id}) }}">Modifier</a>

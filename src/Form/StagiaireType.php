@@ -51,7 +51,7 @@ class StagiaireType extends AbstractType
             ->add('telephone', TextType::class, [
                 'required' => true
             ])
-            // ->add('sessions')
+            ->add('sessions')
             ->add('valider', SubmitType::class);;
     }
 

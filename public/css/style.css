@@ -47,7 +47,7 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 49px;
-  box-shadow: 0 11px 34px 0 rgba(45,62,68,.1)!important;
+  box-shadow: 0 11px 34px 0 rgba(45, 62, 68, 0.1) !important;
 }
 #connexionboxinside1 {
   display: flex;
@@ -63,7 +63,7 @@
   margin-top: auto;
   margin-bottom: auto;
   border-radius: 45px;
-  box-shadow: 0 11px 34px 0 rgba(45,62,68,.1)!important;
+  box-shadow: 0 11px 34px 0 rgba(45, 62, 68, 0.1) !important;
 }
 #loginform {
   margin: auto;
@@ -82,7 +82,7 @@
   text-transform: initial;
   font-size: 14pt;
   font-family: "OpenSans-Semibold", Arial;
-  box-shadow: 0 11px 34px 0 rgba(45,62,68,.1)!important;
+  box-shadow: 0 11px 34px 0 rgba(45, 62, 68, 0.1) !important;
 }
 #logintext {
   text-transform: initial;
@@ -96,7 +96,7 @@
   text-align: left;
   color: #252525;
   font-size: 35pt;
-  font-family: 'OpenSans-Regular',Arial;
+  font-family: "OpenSans-Regular", Arial;
   letter-spacing: 0;
   font-weight: 100;
 }
@@ -116,7 +116,7 @@
   margin-top: 5%;
   border-radius: 17px;
 }
-#yellowbox{
+#yellowbox {
   background-color: #ffff00b1;
   width: 266px;
   height: 66px;
@@ -126,9 +126,9 @@
   top: 45%;
   left: -3em;
   z-index: -1;
-  box-shadow: 0 11px 34px 0 rgba(45,62,68,.1)!important;
+  box-shadow: 0 11px 34px 0 rgba(45, 62, 68, 0.1) !important;
 }
-#whitecircle{
+#whitecircle {
   background-color: white;
   width: 88px;
   height: 94px;
@@ -139,5 +139,5 @@
   -ms-transform: rotate(97deg); /* IE 9 */
   transform: rotate(97deg);
   z-index: -1;
-  box-shadow: 0 11px 34px 0 rgba(45,62,68,.1)!important;
+  box-shadow: 0 11px 34px 0 rgba(45, 62, 68, 0.1) !important;
 }

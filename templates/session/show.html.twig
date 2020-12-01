@@ -1,34 +1,76 @@
 {% extends 'base.html.twig' %}
 
 {% block contenu %}
-	<a type="button" href="{{ path('session')}}" class="btn" style="padding-left: 0;">
+	<a type="button" onclick="history.go(-1);" class="btn" style="padding-left: 0;">
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
-	<table>
+	<table class="table">
 		<tr>
-			<th>Nom :</th>
-			<td>{{ session.nom }}</td>
+			<th>NOM SESSION</th>
+			<th>Formation</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Nombre places</th>
+			<th>Nombre places restantes</th>
+			{% if is_granted('ROLE_ADMIN') %}
+				<th>Modifier</th>
+				<th>Supprimer</th>
+			{% endif %}
 		</tr>
-		<tr>
-			<th>Formation :</th>
-			<td>{{ session.formation.nom }}</td>
-		</tr>
-		<tr>
-			<th>Date début :</th>
-			<td>{{ session.dateDebut | date ('d/m/Y') }}</td>
-		</tr>
-		<tr>
-			<th>Date fin :</th>
-			<td>{{ session.dateFin | date ('d/m/Y') }}</td>
-		</tr>
-		<tr>
-			<th>Nombre places :</th>
-			<td>{{ session.nombrePlaces }}</td>
-		</tr>
-	</table>
-	{% if is_granted('ROLE_ADMIN') %}
+	</thead>
+	<tbody>
+			<tr>
+				<td>{{ session.nom }}</td>
+				<td>{{ session.formation.nom }}</td>
+                <td>{{ session.dateDebut | date ('d/m/Y') }}</td>
+                <td>{{ session.dateFin | date ('d/m/Y') }}</td>
+                <td>{{ session.nombrePlaces }}</td>
+				<td>{{ session.nombrePlaces - session.stagiaire | length }}</td>{# https://stackoverflow.com/questions/17665271/counting-the-number-of-elements-in-array #}
+				{% if is_granted('ROLE_ADMIN') %}
+					<td>
+						<a type="button" class="btn btn-warning" href="{{ path('session_edit', {'id':session.id}) }}">Modifier</a>
+					</td>
+					<td>
+						<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('session_delete', {'id':session.id}) }}">Supprimer</a>
+					</td>
+				{% endif %}
+			</tr>
+	</tbody>
+</table>
+	{# {% if is_granted('ROLE_ADMIN') %}
 	<a type="button" class="btn btn-warning" href="{{ path('session_edit', {'id':session.id}) }}">Modifier</a>
 	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('session_delete', {'id':session.id}) }}">Supprimer la session</a>
+	{% endif %} #}
+	<h4>Stagiaires inscrits dans cette session :</h4>
+	<table class="table">
+		<tr>
+			<th>NOM</th>
+			<th>PRENOM</th>
+			<th>CIVILITE</th>
+			<th>EMAIL</th>
+			<th>TELEPHONE</th>
+			<th>DATE DE NAISSANCE</th>
+			<th>VILLE</th>
+			<th>ADRESSE</th>
+			<th>CP</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for stagiaire in session.stagiaire %}
+			<tr class="clickabletablerow" onclick="window.location='{{ path('stagiaire_show', {'id':stagiaire.id}) }}';">
+				<td>{{ stagiaire.nom }}</td>
+				<td>{{ stagiaire.prenom }}</td>
+				<td>{{ stagiaire.civilite }}</td>
+				<td><a href="mailto:{{ stagiaire.email }}">{{ stagiaire.email }}</a></td>
+				<td>{{ stagiaire.telephone }}</td>
+				<td>{{ stagiaire.dateNaissance | date ('d/m/Y') }}</td>
+				<td>{{ stagiaire.ville }}</td>
+				<td>{{ stagiaire.adresse }}</td>
+				<td>{{ stagiaire.cp }}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
 	<script language="JavaScript" type="text/javascript">
 		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3
@@ -37,5 +79,4 @@ return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
 }
 // ATTENTION QUAND CANCEL LE ONCLICK DU <tr> EST QUAND MEME ACTIVE
 	</script>
-	{% endif %}
 {% endblock %}

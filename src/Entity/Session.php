@@ -144,6 +144,6 @@ class Session
     }
     public function __toString()
     {
-        return $this->nom . " " . $this->description;
+        return $this->nom;
     }
 }
