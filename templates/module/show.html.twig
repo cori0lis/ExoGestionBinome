@@ -3,6 +3,7 @@
 	<a type="button" href="{{ path('module')}}" class="btn" style="padding-left: 0;">
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
+		<h1>Details</h1>
 	<table>
 		<tr>
 			<th>Nom :</th>
@@ -10,7 +11,7 @@
 		</tr>
 		<tr>
 			<th>Categorie :</th>
-			<td>{{ module.categorie }}</td>
+			<td><a href="{{ path('categorie_show', {'id':module.categorie.id}) }}">{{ module.categorie }}</a></td>
 		</tr>
 		<tr>
 			<th>Description :</th>
@@ -20,6 +21,7 @@
 	{% if is_granted('ROLE_ADMIN') %}
 		<a type="button" class="btn btn-warning" href="{{ path('module_edit', {'id':module.id}) }}">Modifier<a>
 				<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('module_delete', {'id':module.id}) }}">Supprimer le module</a>
+			{% endif %}
 				<script language="JavaScript" type="text/javascript">
 					// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3
@@ -27,6 +29,7 @@ function checkDelete() {
 return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
 }
 // ATTENTION QUAND CANCEL LE ONCLICK DU <tr> EST QUAND MEME ACTIVE
-				</script>
-			{% endif %}
-		{% endblock %}
+document.getElementById("coloredselect6").style.background = "yellow";
+document.getElementById("coloredselect6").style.color = "black";
+</script>
+{% endblock %}

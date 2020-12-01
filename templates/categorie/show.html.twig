@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block contenu %}
-	<a type="button" href="{{ path('categorie')}}" class="btn" style="padding-left: 0;">
+	<a type="button" onclick="history.go(-1);" class="btn" style="padding-left: 0;">
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
+	<h1>Details</h1>
 	<table>
 		<tr>
 			<th>Nom :</th>
@@ -17,6 +18,59 @@
 	{% if is_granted('ROLE_ADMIN') %}
 	<a type="button" class="btn btn-warning" href="{{ path('categorie_edit', {'id':categorie.id}) }}">Modifier</a>
 	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('categorie_delete', {'id':categorie.id}) }}">Supprimer la catégorie</a>
+	{% endif %}
+
+<h4>Formateurs qui enseignent cette categorie :</h4>
+<table class="table">
+		<tr>
+			<th>NOM</th>
+			<th>PRENOM</th>
+			{# <th>ROLE</th> #}
+			<th>CIVILITE</th>
+			<th>EMAIL</th>
+			<th>TELEPHONE</th>
+			<th>DATE DE NAISSANCE</th>
+			<th>VILLE</th>
+			<th>ADRESSE</th>
+			<th>CP</th>
+			{# {% if is_granted('ROLE_ADMIN') %}
+				<th>Modifier</th>
+			{% endif %}
+			{% if is_granted('ROLE_SUPER_ADMIN') %}
+				<th>Supprimer</th>
+			{% endif %} #}
+		</tr>
+	</thead>
+	<tbody>
+		{% for utilisateur in categorie.utilisateurs %}
+			<tr class="clickabletablerow" onclick="window.location='{{ path('utilisateur_show', {'id':utilisateur.id}) }}';">
+				<td>{{ utilisateur.nom }}</td>
+				<td>{{ utilisateur.prenom }}</td>
+				{# <td>{{ utilisateur.role }}</td> #}
+				<td>{{ utilisateur.civilite }}</td>
+				<td>
+					<a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a>
+				</td>
+				<td>{{ utilisateur.telephone }}</td>
+				<td>{{ utilisateur.dateNaissance | date ('d/m/Y') }}</td>
+				<td>{{ utilisateur.ville }}</td>
+				<td>{{ utilisateur.adresse }}</td>
+				<td>{{ utilisateur.cp }}</td>
+				{# {% if is_granted('ROLE_ADMIN') %}
+					<td>
+						<a type="button" class="btn btn-warning" href="{{ path('utilisateur_edit', {'id':utilisateur.id}) }}">Modifier</a>
+					</td>
+				{% endif %}
+				{% if is_granted('ROLE_SUPER_ADMIN') %}
+					<td>
+						<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('utilisateur_delete', {'id':utilisateur.id}) }}">Supprimer</a>
+					</td>
+					{% endif %} #}
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
 	<script language="JavaScript" type="text/javascript">
 		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm3
@@ -24,6 +78,7 @@ function checkDelete() {
 return confirm('Appuyez sur OK pour supprimer.\nSinon veuillez Annuler');
 }
 // ATTENTION QUAND CANCEL LE ONCLICK DU <tr> EST QUAND MEME ACTIVE
-	</script>
-	{% endif %}
+document.getElementById("coloredselect4").style.background = "yellow";
+document.getElementById("coloredselect4").style.color = "black";
+</script>
 {% endblock %}
