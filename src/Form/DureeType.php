@@ -5,17 +5,18 @@ namespace App\Form;
 use App\Entity\Duree;
 use App\Entity\Module;
 use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class DureeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nbJours')
+            ->add('nbJours', IntegerType::class)
             // ->add('formation')
             ->add('modules', EntityType::class,[
                 'class' => Module::class,

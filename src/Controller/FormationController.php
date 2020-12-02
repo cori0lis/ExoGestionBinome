@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Formation;
+use App\Form\ModulesType;
 use App\Form\FormationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -75,11 +76,27 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/duree/{id}", name="add_duree")
+     * @Route("/addDuree/{id}", name="add_duree")
      */
-    public function addModuleToFormation(Formation $formation, Request $request, EntityManagerInterface $manager){
-        
-        return $this->render('formation/duree.html.twig', ['formation' => $formation]);
+    public function addModuleToFormation(Formation $formation, Request $request, EntityManagerInterface $manager) : Response
+    {
+
+        $form =$this->createForm(ModulesType::class, $formation);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $manager->persist($formation);
+
+            $manager->flush();
+
+            return $this->redirectToRoute('formation');
+        }
+        return $this->render('formation/duree.html.twig', [
+            'form'=> $form->createView(),
+            'formation'=> $formation,
+        ]);
     }
 
     //soumettre le ModulesType

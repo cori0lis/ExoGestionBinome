@@ -23,12 +23,12 @@ class Duree
     private $nbJours;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Formation::class, inversedBy="durees")
+     * @ORM\ManyToOne(targetEntity=Formation::class, inversedBy="durees", cascade={"persist"})
      */
     private $formation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Module::class, inversedBy="durees")
+     * @ORM\ManyToOne(targetEntity=Module::class, inversedBy="durees", cascade={"persist"})
      */
     private $modules;
 

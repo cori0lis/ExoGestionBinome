@@ -71,28 +71,4 @@ class SessionController extends AbstractController
     {
         return $this->render('session/show.html.twig', ['session' => $session]);
     }
-
-    /**
-     * @Route("/addDuree/{id}", name="add_duree")
-     */
-        public function addModuleToFormation(Formation $formation, Request $request, EntityManagerInterface $manager) : Response
-        {
-
-            $form =$this->createForm(ModulesType::class, $formation);
-
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()){
-
-                $manager->persist($formation);
-
-                $manager->flush();
-
-                return $this->redirectToRoute('formation');
-            }
-            return $this->render('formation/duree.html.twig', [
-                'form'=> $form->createView(),
-                'training'=> $formation,
-            ]);
-        }
 }
