@@ -15,6 +15,48 @@
 			<td>{{ formation.description }}</td>
 		</tr>
 	</table>
+<h2>Liste des modules :</h2>
+
+<table class="table">
+		<tr>
+			<th>NOM</th>
+			{# <th>CATEGORIE</th> #}
+			<th>NOMBRE JOURS</th>
+			{# <th>SESSIONS</th> #}
+			{# <th>DUREE</th> #}
+			{# <th>MODULES</th> #}
+			{# <th>FORMATEUR</th> #}
+				{# {% if is_granted('ROLE_ADMIN') %}<th>Modifier
+				</th><th>Supprimer
+			</th>
+		{% endif %} #}
+	</tr>
+	</thead>
+		<tbody>
+			{% for module in formation.durees %}
+				<tr>
+				{# <td>{{ module.categorie }}</td> #}
+				<td>{{ module }}</td>
+				{# <td>{{ module.sessions }}</td> #}
+				<td>{{ module.nbJours }}</td>
+				{# <td>{{ module.modules }}</td> #}
+				{# <td>{{ module.formateur }}</td> #}
+				{# {% if is_granted('ROLE_ADMIN') %}
+					<td>
+						<a type="button" class="btn btn-warning" href="{{ path('module_edit', {'id':module.id}) }}">Modifier</a>
+					</td>
+					<td>
+						<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('module_delete', {'id':module.id}) }}">Supprimer</a>
+					</td>
+				{% endif %} #}
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{# <a class="btn btn-warning btn-sm" href="{​​​​​{​​​​​ path('add_duree', {​​​​​'id': formation.id}​​​​​) }​​​​​} ​​​​​"role="button"> Modifier les modules </a> #}
+<a href="{{ path('add_duree', {'id': formation.id}) }}">Modifier Truc</a>
+
 	{% if is_granted('ROLE_ADMIN') %}
 	<a type="button" class="btn btn-warning" href="{{ path('formation_edit', {'id':formation.id}) }}">Modifier</a>
 	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('formation_delete', {'id':formation.id}) }}">Supprimer la formation</a>

@@ -73,4 +73,14 @@ class FormationController extends AbstractController
     {
         return $this->render('formation/show.html.twig', ['formation' => $formation]);
     }
+
+    /**
+     * @Route("/duree/{id}", name="add_duree")
+     */
+    public function addModuleToFormation(Formation $formation, Request $request, EntityManagerInterface $manager){
+        
+        return $this->render('formation/duree.html.twig', ['formation' => $formation]);
+    }
+
+    //soumettre le ModulesType
 }

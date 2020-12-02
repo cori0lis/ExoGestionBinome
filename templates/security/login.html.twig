@@ -19,9 +19,6 @@
 			</div>
 			<div id="connexionboxinside2">
 				<form method="post" id="loginform">
-					{% if error %}
-						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-					{% endif %}
 
 
 					<h1 id="logintitle" class="h3 mb-3 font-weight-normal">Connexion</h1>
@@ -35,16 +32,16 @@
 						<input
 						type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-					{#
-														        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-														        See https://symfony.com/doc/current/security/remember_me.html
-														
-														        <div class="checkbox mb-3">
-														            <label>
-														                <input type="checkbox" name="_remember_me"> Remember me
-														            </label>
-														        </div>
-														    #}
+{#
+    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+    See https://symfony.com/doc/current/security/remember_me.html
+			
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" name="_remember_me"> Remember me
+        </label>
+    </div>
+#}
 					</div>
 					<button class="btn btn-lg btn-primary loginbtn" type="submit">
 						Se connecter
@@ -52,5 +49,8 @@
 				</form>
 			</div>
 		</div>
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
 	{% endif %}
 {% endblock %}
