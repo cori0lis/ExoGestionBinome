@@ -34,9 +34,9 @@
 	</thead>
 		<tbody>
 			{% for module in formation.durees %}
-				<tr>
+				<tr class="clickabletablerow" onclick="window.location='{{ path('module_show', {'id':module.modules.id}) }}';">
 				{# <td>{{ module.categorie }}</td> #}
-				<td>{{ module }}</td>
+				<td>{{ module.modules.nom }}</td>
 				{# <td>{{ module.sessions }}</td> #}
 				<td>{{ module.nbJours }}</td>
 				{# <td>{{ module.modules }}</td> #}
