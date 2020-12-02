@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+	<h2>{{formation.nom}}</h2>
+
+	{{form_start(form)}}
+
+	<ul id="gestionDurees" data-prototype="{{ form_row(form.durees.vars.prototype)|e }}">
+
+		{% for module in form.durees %}
+			<li>
+
+				{{form_row(module)}}
+			</li>
+		{% endfor %}
+	</ul>
+
+    {{form_row(form.submit)}}
+
+    {{ form_end(form)}}
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script src="/js/collectionHandlerDuree.js"></script>
+{% endblock %}

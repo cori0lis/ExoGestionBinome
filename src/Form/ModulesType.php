@@ -22,7 +22,7 @@ class ModulesType extends AbstractType
                     'label' => "Atelier et Duree"
                 ],
                 'allow_add' => true,
-                'allors_delete' => true,
+                'allow_delete' => true,
                 'by_reference' => false
             ])
             // ->add('description')
