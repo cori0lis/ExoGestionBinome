@@ -82,9 +82,10 @@ class Utilisateur implements UserInterface
     private $categorie;
 
     /**
+     * @var string le token qui servira lors de l'oubli de mot de passe
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $resetToken;
+    protected $resetToken;
 
     public function __construct()
     {
@@ -299,7 +300,7 @@ class Utilisateur implements UserInterface
         return $this->resetToken;
     }
 
-    public function setResetToken(string $resetToken): self
+    public function setResetToken($resetToken): self
     {
         $this->resetToken = $resetToken;
 
