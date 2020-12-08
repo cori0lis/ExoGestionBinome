@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 02 déc. 2020 à 01:01
+-- Généré le : mar. 08 déc. 2020 à 19:58
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.2.31
 
@@ -72,6 +72,17 @@ CREATE TABLE `duree` (
   `modules_id` int(11) DEFAULT NULL,
   `nb_jours` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `duree`
+--
+
+INSERT INTO `duree` (`id`, `formation_id`, `modules_id`, `nb_jours`) VALUES
+(1, NULL, 1, 12),
+(2, NULL, 3, 13),
+(3, NULL, 1, 12),
+(4, NULL, 1, 31),
+(5, 6, 1, 21);
 
 -- --------------------------------------------------------
 
@@ -226,7 +237,8 @@ INSERT INTO `utilisateur` (`id`, `email`, `roles`, `password`, `nom`, `prenom`, 
 (18, 'user@test.fr', '[\"ROLE_USER\"]', '$argon2id$v=19$m=65536,t=4,p=1$7SNVf942bu821AzLnHZAKw$gZiFVLHbsWZnUqv1D/rbvBIqyn71nzSyhBPmWWyVmdE', 'USER', 'Formateur', 'F', '2020-01-01', 'Strasbourg', '7B rue de l\'abreuvoir', '67000', '0980998089', NULL),
 (19, 'superadmin@test.fr', '[\"ROLE_SUPER_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$7SNVf942bu821AzLnHZAKw$gZiFVLHbsWZnUqv1D/rbvBIqyn71nzSyhBPmWWyVmdE', 'SUPERADMIN', 'Direction', 'F', '2020-01-01', 'Rhinau', '9B Rue du Rhin', '67860', '0695782323', NULL),
 (20, 'test@test.frfdfddfdfs', '[\"ROLE_USER\"]', '$argon2id$v=19$m=65536,t=4,p=1$7SNVf942bu821AzLnHZAKw$gZiFVLHbsWZnUqv1D/rbvBIqyn71nzSyhBPmWWyVmdE', 'TEST', 'test', 'F', '2020-01-01', 'TESTY', 'rue test', '67000', '0695782323', NULL),
-(22, 'tedqsdsqst@test.frfdfddfdfs', '[\"ROLE_USER\"]', '$argon2id$v=19$m=65536,t=4,p=1$7SNVf942bu821AzLnHZAKw$gZiFVLHbsWZnUqv1D/rbvBIqyn71nzSyhBPmWWyVmdE', 'TESTdds', 'test', 'F', '2020-01-01', 'TESTY', 'rue test', '67000', '0695782312', NULL);
+(22, 'exogestion@yopmail.com', '[\"ROLE_USER\"]', '$argon2id$v=19$m=65536,t=4,p=1$7SNVf942bu821AzLnHZAKw$gZiFVLHbsWZnUqv1D/rbvBIqyn71nzSyhBPmWWyVmdE', 'TESTdds', 'test', 'F', '2020-01-01', 'TESTY', 'rue test', '67000', '0695782312', 'w-Zoy4Wgr4SdZORXC6BlWMyd9CXlEK7E92Jncxn0BCY'),
+(26, 'm.z.klos@gmail.com', '[]', '$argon2id$v=19$m=65536,t=4,p=1$ZQY1iNF/Gl/6HZyGLs1NUw$t7Yzl1iVCowyLCSM/y4jkMrhYnfz6wQLwO849/pl+hg', 'Klos', 'Matthias', 'F', '2020-01-01', 'Rhinau', '9B Rue du Rhin', '67860', '0695782323', NULL);
 
 -- --------------------------------------------------------
 
@@ -333,7 +345,7 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `duree`
 --
 ALTER TABLE `duree`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `formation`
@@ -363,7 +375,7 @@ ALTER TABLE `stagiaire`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Contraintes pour les tables déchargées
