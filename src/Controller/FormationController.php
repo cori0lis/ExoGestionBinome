@@ -68,7 +68,7 @@ class FormationController extends AbstractController
         return $this->render('formation/index.html.twig', ['formations' => $formations,]);
     }
     /**
-     * @Route("/formation/{id}", name="formation_show", methods="GET")
+     * @Route("/formateur/formation/{id}", name="formation_show", methods="GET")
      */
     public function show(Formation $formation): Response
     {
@@ -76,7 +76,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/addDuree/{id}", name="add_duree")
+     * @Route("/admin/addDuree/{id}", name="add_duree")
      */
     public function addModuleToFormation(Formation $formation, Request $request, EntityManagerInterface $manager) : Response
     {

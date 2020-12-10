@@ -53,7 +53,7 @@ class SessionController extends AbstractController
     }
     
     /**
-     * @Route("/session", name="session")
+     * @Route("/admin/session", name="session")
      */
     public function index()
     {
@@ -65,7 +65,7 @@ class SessionController extends AbstractController
     }
 
     /**
-     * @Route("/session/{id}", name="session_show", methods="GET")
+     * @Route("/formateur/session/{id}", name="session_show", methods="GET")
      */
     public function show(Session $session): Response
     {

@@ -16,8 +16,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UtilisateurController extends AbstractController
 {
     /**
-     * @Route("/utilisateur/add", name="utilisateur_add")
-     * @Route("/utilisateur/{id}/edit", name="utilisateur_edit")
+     * @Route("/direction/utilisateur/add", name="utilisateur_add")
+     * @Route("/admin/utilisateur/{id}/edit", name="utilisateur_edit")
      */
     public function new_update(Utilisateur $utilisateur = null, Request $request, EntityManagerInterface $manager)
     {
@@ -53,7 +53,7 @@ class UtilisateurController extends AbstractController
         return $this->redirectToRoute('utilisateur');
     }
     /**
-     * @Route("/utilisateur", name="utilisateur")
+     * @Route("/formateur/utilisateur", name="utilisateur")
      */
     // public function index(): Response
     // {
@@ -70,7 +70,7 @@ class UtilisateurController extends AbstractController
         return $this->render('utilisateur/index.html.twig', ['utilisateurs' => $utilisateurs,]);
     }
     /**
-     * @Route("/utilisateur/{id}", name="utilisateur_show", methods="GET")
+     * @Route("/formateur/utilisateur/{id}", name="utilisateur_show", methods="GET")
      */
     public function show(Utilisateur $utilisateur): Response
     {
@@ -78,7 +78,7 @@ class UtilisateurController extends AbstractController
     }
 
     /**
-     * @Route("/changepassword/{id}", name="app_changepassword")
+     * @Route("/formateur/changepassword/{id}", name="app_changepassword")
      */
     public function changePassword(
         Utilisateur $utilisateur,

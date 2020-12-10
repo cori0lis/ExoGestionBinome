@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class StagiaireController extends AbstractController
 {
     // /**
-    //  * @Route("/stagiaire", name="stagiaire")
+    //  * @Route("/formateur/stagiaire", name="stagiaire")
     //  */
     // public function index(): Response
     // {
@@ -59,7 +59,7 @@ class StagiaireController extends AbstractController
         return $this->redirectToRoute('stagiaire');
     }
     /**
-     * @Route("/stagiaire", name="stagiaire")
+     * @Route("/formateur/stagiaire", name="stagiaire")
      */
     public function index()
     {
@@ -70,7 +70,7 @@ class StagiaireController extends AbstractController
         return $this->render('stagiaire/index.html.twig', ['stagiaires' => $stagiaires,]);
     }
     /**
-     * @Route("/stagiaire/{id}", name="stagiaire_show", methods="GET")
+     * @Route("/formateur/stagiaire/{id}", name="stagiaire_show", methods="GET")
      */
     public function show(Stagiaire $stagiaire): Response
     {

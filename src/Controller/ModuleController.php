@@ -51,7 +51,7 @@ class ModuleController extends AbstractController
     }
     
     /**
-     * @Route("/module", name="module")
+     * @Route("/admin/module", name="module")
      */
     public function index()
     {
@@ -63,7 +63,7 @@ class ModuleController extends AbstractController
     }
 
     /**
-     * @Route("/module/{id}", name="module_show", methods="GET")
+     * @Route("/formateur/module/{id}", name="module_show", methods="GET")
      */
     public function show(Module $module): Response
     {

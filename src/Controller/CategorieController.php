@@ -51,7 +51,7 @@ class CategorieController extends AbstractController
     }
     
     /**
-     * @Route("/categorie", name="categorie")
+     * @Route("/admin/categorie", name="categorie")
      */
     public function index()
     {
@@ -63,7 +63,7 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @Route("/categorie/{id}", name="categorie_show", methods="GET")
+     * @Route("/formateur/categorie/{id}", name="categorie_show", methods="GET")
      */
     public function show(Categorie $categorie): Response
     {

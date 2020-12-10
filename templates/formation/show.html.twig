@@ -4,7 +4,7 @@
 	<a type="button" href="{{ path('formation')}}" class="btn" style="padding-left: 0;">
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
-		<h1>Details</h1>
+		<h1>Details Formation</h1>
 	<table>
 		<tr>
 			<th>Nom :</th>
@@ -55,10 +55,10 @@
 </table>
 
 {# <a class="btn btn-warning btn-sm" href="{​​​​​{​​​​​ path('add_duree', {​​​​​'id': formation.id}​​​​​) }​​​​​} ​​​​​"role="button"> Modifier les modules </a> #}
-<a href="{{ path('add_duree', {'id': formation.id}) }}">Modifier Truc</a>
 
 	{% if is_granted('ROLE_ADMIN') %}
-	<a type="button" class="btn btn-warning" href="{{ path('formation_edit', {'id':formation.id}) }}">Modifier</a>
+<a type="button" class="btn btn-warning" href="{{ path('add_duree', {'id': formation.id}) }}">Modifier Module dans Formation</a>
+	<a type="button" class="btn btn-warning" href="{{ path('formation_edit', {'id':formation.id}) }}">Modifier Formation</a>
 	<a type="button" onclick="return checkDelete()" class="btn btn-danger" href="{{ path('formation_delete', {'id':formation.id}) }}">Supprimer la formation</a>
 	{% endif %}
 	<script language="JavaScript" type="text/javascript">
