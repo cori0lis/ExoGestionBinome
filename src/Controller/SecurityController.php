@@ -26,7 +26,7 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
-            header('Refresh: 2 URL=utilisateur');
+            header('Refresh: 2 URL=/formateur/utilisateur');
             // return $this->redirectToRoute('utilisateur');
         }
 
