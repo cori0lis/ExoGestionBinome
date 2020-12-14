@@ -67,7 +67,7 @@ class CalendarSubscriber implements EventSubscriberInterface
             ]);
             $sessionEvent->addOption(
                 'url',
-                $this->router->generate('session_calendar', [
+                $this->router->generate('session_show', [
                     'id' => $session->getId(),
                 ])
             );
