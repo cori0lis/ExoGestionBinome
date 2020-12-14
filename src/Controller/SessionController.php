@@ -6,6 +6,8 @@ use App\Entity\Session;
 use App\Entity\Formation;
 use App\Form\ModulesType;
 use App\Form\SessionType;
+use App\Form\StagiaireType;
+use App\Form\StagiairesType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,5 +79,28 @@ class SessionController extends AbstractController
     public function showCal(): Response
     {
         return $this->render('session/sessionCalendar.html.twig');
+    }
+    /**
+     * @Route("/admin/StagiairesInSession/{id}", name="stagiairesInSession")
+     */
+    public function addStagiaireToSession(Session $session, Request $request, EntityManagerInterface $manager) : Response
+    {
+
+        $form =$this->createForm(StagiairesType::class, $session);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $manager->persist($session);
+
+            $manager->flush();
+
+            return $this->redirectToRoute('session');
+        }
+        return $this->render('session/duree.html.twig', [
+            'form'=> $form->createView(),
+            'session'=> $session,
+        ]);
     }
 }

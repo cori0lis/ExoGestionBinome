@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+<h1>coucou</h1>
+	<h2>{{ session.nom }}</h2>
+
+	{{form_start(form)}}
+
+	{# <ul id="gestionDurees" data-prototype="{{ form_row(form.durees.vars.prototype)|e }}">
+
+		{% for stagiaire in form.durees %}
+			<li class="gestionDuree">
+				{{form_row(stagiaire)}}
+			</li>
+		{% endfor %}
+	</ul> #}
+
+    {{form_row(form.valider)}}
+
+    {{ form_end(form)}}
+{% endblock %}
+{# 
+{% block javascripts %}
+    {{parent()}}
+    <script src="/js/collectionHandlerStagiaires.js"></script>
+{% endblock %} #}
