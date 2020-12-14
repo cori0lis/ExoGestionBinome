@@ -73,7 +73,7 @@
 	</tbody>
 </table>
 {% if is_granted('ROLE_ADMIN') %}
-		<a type="button" class="btn btn-warning" href="{{ path('stagiairesInSession', {'id': session.id}) }}">Modifier Stagiaires dans cette Session</a>
+		<a type="button" class="btn btn-warning" href="{{ path('stagiairesInSession', {'id': session.id}) }}">ajouter/supprimer dynamiquement Stagiaires dans cette Session</a>
 		{% endif %}
 	<script language="JavaScript" type="text/javascript">
 		// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website

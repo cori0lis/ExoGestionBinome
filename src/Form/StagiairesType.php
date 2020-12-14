@@ -2,11 +2,8 @@
 
 namespace App\Form;
 
-// use App\Form\DureeType;
 use App\Entity\Session;
 use App\Entity\Stagiaire;
-use App\Form\StagiaireType;
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -20,6 +17,7 @@ class StagiairesType extends AbstractType
     {
         $builder
             ->add('stagiaire', CollectionType::class, [
+                // 'label' => false,
                 'entry_type' => EntityType::class,
                 'entry_options' => [
                     'label' => "Stagiare : ",

@@ -32,12 +32,12 @@
     //rendu de la collection au chargement de la page
     $(document).ready(function() {
         //on pointe la liste complete (le conteneur de la collection)
-        var $collection = $("ul#gestionDurees")
+        var $collection = $("ul#gestionStagiaires")
         //on y ajoute le bouton ajouter (à la fin du contenu)
         $collection.append($newLinkLi);
 
         //pour chaque li déjà présente dans la collection (dans le cas d'une modification)
-        $(".gestionDuree").each(function(){
+        $(".gestionStagiaire").each(function(){
             //on génère et ajoute un bouton "supprimer"
             $(this).append(generateDeleteButton());
         })
