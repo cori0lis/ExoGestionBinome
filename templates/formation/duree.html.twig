@@ -20,9 +20,15 @@
     {{form_row(form.valider)}}
 
     {{ form_end(form)}}
+
+	
 {% endblock %}
 
 {% block javascripts %}
     {{parent()}}
     <script src="/js/collectionHandlerDuree.js"></script>
+	<script language="JavaScript" type="text/javascript">
+document.getElementById("coloredselect2").style.background = "yellow";
+document.getElementById("coloredselect2").style.color = "black";
+</script>
 {% endblock %}
