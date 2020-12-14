@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block contenu %}
-<h1>coucou</h1>
+<a type="button" onclick="history.go(-1);" class="btn" style="padding-left: 0;">
+		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
+	</a>
 	<h2>{{ formation.nom }}</h2>
 
 	{{form_start(form)}}

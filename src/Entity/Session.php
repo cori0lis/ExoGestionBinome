@@ -40,7 +40,7 @@ class Session
     private $nombrePlaces;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Stagiaire::class, inversedBy="sessions")
+     * @ORM\ManyToMany(targetEntity=Stagiaire::class, inversedBy="sessions", cascade={"persist"})
      */
     private $stagiaire;
 

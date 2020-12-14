@@ -8,23 +8,23 @@
 
 	{{form_start(form)}}
 
-	{# <ul id="gestionDurees" data-prototype="{{ form_row(form.durees.vars.prototype)|e }}">
+	<ul id="gestionDurees" data-prototype="{{ form_row(form.stagiaire.vars.prototype)|e }}">
 
-		{% for stagiaire in form.durees %}
+		{% for stagiaire in session %}
 			<li class="gestionDuree">
 				{{form_row(stagiaire)}}
 			</li>
 		{% endfor %}
-	</ul> #}
+	</ul>
 
     {{form_row(form.valider)}}
 
     {{ form_end(form)}}
-{# 
+
 {% block javascripts %}
     {{parent()}}
-    <script src="/js/collectionHandlerStagiaires.js"></script>
-{% endblock %} #}
+    <script src="/js/collectionHandlerStagiaire.js"></script>
+{% endblock %}
 <script language="JavaScript" type="text/javascript">
 document.getElementById("coloredselect5").style.background = "yellow";
 document.getElementById("coloredselect5").style.color = "black";
