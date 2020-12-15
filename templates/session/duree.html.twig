@@ -1,32 +1,39 @@
 {% extends 'base.html.twig' %}
 
+
 {% block contenu %}
 <a type="button" onclick="history.go(-1);" class="btn" style="padding-left: 0;">
 		<i class="fas fa-arrow-left" style="font-size: 3rem"></i>
 	</a>
-	<h2>{{ session.nom }}</h2>
+    <h2>{{'Session ' ~ session.nom ~ ' du ' ~ session.dateDebut | date('d/m/Y') ~ ' au ' ~ session.dateFin | date('d/m/Y')}}</h2>
 
-	{{form_start(form)}}
+    {{form_start(form)}}
 
-	<ul id="gestionStagiaires" data-prototype="{{ form_row(form.stagiaire.vars.prototype)|e }}">
+    <ul id="gestionStagiaires" data-prototype="{{ form_row(form.stagiaire.vars.prototype)|e }}">
 
-		{% for stagiaire in form.stagiaire %}
-			<li class="gestionStagiaire">
-				{{form_row(stagiaire)}}
-			</li>
-		{% endfor %}
-	</ul>
+        {% for stagiaire in form.stagiaire %}
+
+            <li class="gestionStagiaire">
+
+                {{form_row(stagiaire)}}
+
+            </li>
+
+        {% endfor %}
+
+    </ul>
 
     {{form_row(form.valider)}}
 
-    {{ form_end(form)}}
+    {{form_end(form)}}
+
+{% endblock %}
 
 {% block javascripts %}
     {{parent()}}
-    <script src="/js/collectionHandlerStagiaire.js"></script>
-{% endblock %}
-<script language="JavaScript" type="text/javascript">
-document.getElementById("coloredselect5").style.background = "yellow";
-document.getElementById("coloredselect5").style.color = "black";
-</script>
+	<script src="/js/collectionHandlerStagiaire.js"></script>
+	<script>
+	document.getElementById("coloredselect5").style.background = "yellow";
+	document.getElementById("coloredselect5").style.color = "black";
+	</script>
 {% endblock %}
