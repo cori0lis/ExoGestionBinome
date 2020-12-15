@@ -20,41 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.1.0/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.js"></script>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', () => {
-            var calendarEl = document.getElementById('calendar-holder');
-
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        // eventClick: function(info) {
-        // window.open("/formateur/session/"+el.id);
-        // },
-        navLinks: true,
-        weekNumbers: true,
-        defaultView: 'dayGridMonth',
-        editable: true,
-        eventSources: [
-            {
-                url: "/fc-load-events",
-                method: "POST",
-                extraParams: {
-                    filters: JSON.stringify({})
-                },
-                failure: () => {
-                    // alert("There was an error while fetching FullCalendar!");
-                },
-            },
-        ],
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay',
-        },
-        plugins: [ 'interaction', 'dayGrid', 'timeGrid' ], // https://fullcalendar.io/docs/plugin-index
-        timeZone: 'UTC',
-    });
-    calendar.render();
-});
-    </script>
+    <script src="{{ asset('js/calendar.js') }}"></script>
     <script language="JavaScript" type="text/javascript">
 	// https://stackoverflow.com/questions/19022176/confirm-button-before-running-deleting-routine-from-website
 function checkDelete() {
